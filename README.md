@@ -4,14 +4,14 @@
 ***
 ### List of Figures
 
-- **HOME PAGE**
-- **CLOTHING PAGE (PRODUCTS)**
-- **ORDER US PAGE**
-- **CONTACT US PAGE**
-- **ABOUT US PAGE**
-- **TRACK FOR ADMIN PAGE**
-- **REGISTER PAGE**
-- **LOGIN**
-- **ADMIN PAGE**
-- **ORDER VIEW FOR USER**
-- **PAYPAL FOR PAYMENT**
+- **Home Page**
+- **Clothing Page (PRODUCTS)**
+- **Order us Page**
+- **Contact us Page**
+- **About us Page**
+- **Track For Admin Page**
+- **Register Page**
+- **Login**
+- **Admin Page**
+- **Order view For User**
+- **PayPal For Payment**
