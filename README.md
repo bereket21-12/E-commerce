@@ -11,8 +11,10 @@
 - **Clothing Page (PRODUCTS)**
 - **Order us Page**
   - *PayPal For Payment*
-- **Login**
-  - *Register Page*
+- **Register**
+  - *Login Page*
+  - *SignUp Page*
 - **Admin Page**
 - **Order view For User**
 
+## DEADLINE 19-04-2015
