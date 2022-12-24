@@ -10,9 +10,9 @@
   - *About us Page*
 - **Clothing Page (PRODUCTS)**
 - **Order us Page**
-- **Track For Admin Page**
-- **Register Page**
+  - *PayPal For Payment*
 - **Login**
+  - *Register Page*
 - **Admin Page**
 - **Order view For User**
-- **PayPal For Payment**
+
