@@ -5,6 +5,7 @@
 ### List of Figures
 
 - **Home Page**
+  - *Navigation Bar*
   - *Contact us Page*
   - *About us Page*
 - **Clothing Page (PRODUCTS)**
