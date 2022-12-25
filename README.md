@@ -5,13 +5,20 @@
 ### List of Figures
 
 - **Home Page**
+  - *Navigation Bar*
+  - *Contact us Page*
+  - *About us Page*
 - **Clothing Page (PRODUCTS)**
 - **Order us Page**
-- **Contact us Page**
-- **About us Page**
-- **Track For Admin Page**
-- **Register Page**
-- **Login**
+  - *PayPal For Payment*
+- **Register**
+  - *Login Page*
+  - *SignUp Page*
 - **Admin Page**
 - **Order view For User**
-- **PayPal For Payment**
+
+***
+
+## DEADLINE 19-04-2015
+
+---
