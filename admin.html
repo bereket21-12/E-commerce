@@ -44,7 +44,7 @@
                  
                   <div class="container-fluid justify-content-between">
                 <div class="row mb-2">
-                    <button type="button" class="btn btn-primary rounded-2">Add Product</button>
+                    <a type="button" href="#addform" class="btn btn-primary rounded-2" id="makeformvis" onclick="clickHandler()" >Add Product</a>
 
                 </div>
                 <div class="row mb-2">
@@ -121,7 +121,7 @@
     <!-- Navbar End -->
 
     <!-- Add Product -->
-    <div class="container-fluid d-flex align-items-center flex-column border-dark border-secondary ">
+    <div class="container-fluid d-flex align-items-center flex-column border-dark border-secondary opacity-0" id="addform">
         <form >
             <div class="  w-100 ">
                 <label  class="form-label">Product Name :</label>
@@ -213,5 +213,6 @@
     <!-- Add Product -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="./js/admin.js"></script>
 </body>
 </html>
