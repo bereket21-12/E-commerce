@@ -35,24 +35,33 @@
         <div class="row">
            
               <!-- side bar contents start -->
-              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+              <div class="offcanvas offcanvas-start text-bg-dark " tabindex="-1" id="offcanvas" aria-labelledby="offcanvas">
                 <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  <h5 class="offcanvas-title text-white "id="offcanvas">Dashboard</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                  <div>
-                    Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-                  </div>
-                  <div class="dropdown mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                      Dropdown button
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                 
+                  <div class="container-fluid justify-content-between">
+                <div class="row mb-2">
+                    <button type="button" class="btn btn-primary rounded-2">Add Product</button>
+
+                </div>
+                <div class="row mb-2">
+                    <button type="button" class="btn btn-primary rounded-2">Members</button>
+
+                </div> <div class="row mb-2">
+                    <button type="button" class="btn btn-secondary rounded-2">Recent orders</button>
+
+                </div> <div class="row mb-2">
+                    <button type="button" class="btn btn-primary rounded-2">lolol</button>
+
+                </div> <div class="row mb-2">
+                    <button type="button" class="btn btn-primary rounded-2">lolo</button>
+
+                </div>
+
+                    </div>
                 </div>
             </div>
               <!-- side bar contents end -->
@@ -63,7 +72,7 @@
                 
                 <div class="navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a class="nav-item nav-link active" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                        <a class="nav-item nav-link active" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvasExample">
                             <i class="fas fa-bars"></i>
                         </a>
                         
@@ -110,6 +119,94 @@
         </div>
     </div>
     <!-- Navbar End -->
+
+    <!-- Add Product -->
+    <div class="container-fluid d-flex align-items-center flex-column border-dark border-secondary ">
+        <form >
+            <div class="  w-100 ">
+                <label for="exampleInputEmail1" class="form-label">Product Name :</label>
+                <input type="text" class="form-control" id="InputEmail1" >
+                
+              </div>
+          
+            <div class="  w-100 ">
+                <label for="exampleInputEmail1" class="form-label">Product Name :</label>
+                <input type="text" class="form-control" id="InputEmail1" >
+                
+              </div>
+              <div class=" w-100 ">
+                <div class="  w-100 ">
+                    <label for="exampleInputEmail1" class="form-label">Price :</label>
+                    <input type="number" class="form-control" id="InputEmail1" >
+                    
+                  </div>
+            <div class="mb-3 w-100">
+              <label for="exampleInputPassword1" class="form-label">Description</label>
+              <textarea  class="form-control" id="exampleInputPassword1"></textarea>
+            </div>
+            <div class="d-flex mb-4">
+                <strong class="text-dark mr-3">Colors:</strong>
+                <form>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="color-1" name="color">
+                        <label class="custom-control-label" for="color-1">Black</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="color-2" name="color">
+                        <label class="custom-control-label" for="color-2">White</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="color-3" name="color">
+                        <label class="custom-control-label" for="color-3">Red</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="color-4" name="color">
+                        <label class="custom-control-label" for="color-4">Blue</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                        <input type="checkbox" class="custom-control-input" id="color-5" name="color">
+                        <label class="custom-control-label" for="color-5">Green</label>
+                    </div>
+                    <div>
+              
+                    </div>
+
+                    
+                </form>
+                </div>
+                <div class="d-flex mb-4 ">
+                    <strong class="text-dark mr-3">Sizes:</strong>
+                    <form>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" id="size-1" name="size">
+                            <label class="custom-control-label" for="size-1">XS</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" id="size-2" name="size">
+                            <label class="custom-control-label" for="size-2">S</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" id="size-3" name="size">
+                            <label class="custom-control-label" for="size-3">M</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" id="size-4" name="size">
+                            <label class="custom-control-label" for="size-4">L</label>
+                        </div>
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input type="checkbox" class="custom-control-input" id="size-5" name="size">
+                            <label class="custom-control-label" for="size-5">XL</label>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+         
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+    </div>
+    <!-- Add Product -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0-alpha1/js/bootstrap.min.js"></script>
 </body>
 </html>
