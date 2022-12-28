@@ -166,11 +166,16 @@
 
     <!-- Add Product -->
     <div
-      class="container-fluid d-flex align-items-center flex-column border-dark border-secondary opacity-0"
+      class="container-fluid row d-block flex-column border-dark border-secondary opacity-0"
       id="addform"
     >
-      <form>
+      <form class="row p-5">
+        <div class="col">
+          <p>Lorem ipsum dolor sit as facere quisquam, aut dolore cupiditate laboriosam expedita nemo corrupti, laudantium commodi officia doloribus corporis! Quo repellat minus aliquam quidem vel voluptatum. Nesciunt dicta enim voluptates cumque quidem repellendus voluptatem ratione assumenda? Autem sit eligendi aspernatur dolore incidunt blanditiis reprehenderit? Nemo dolore officia modi eligendi ad possimus rerum. Officiis dolorum, saepe placeat maxime vero consectetur possimus repellendus fugit quas exercitationem laudantium libero .</p>
+        </div>
+       <div class="col">
         <div class="w-100 form-group">
+
           <label class="form-label">Product Name :</label>
           <input
             type="text"
@@ -250,7 +255,7 @@
           </div>
           <div class="d-flex mb-4">
             <strong class="text-dark mr-3">Sizes:</strong>
-            <form>
+            
               <div class="custom-control custom-checkbox custom-control-inline">
                 <input
                   type="checkbox"
@@ -296,11 +301,12 @@
                 />
                 <label class="custom-control-label" for="size-5">XL</label>
               </div>
-            </form>
+            
           </div>
         </div>
+       </div>
 
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary w-25">Add</button>
       </form>
     </div>
     <!-- Add Product -->
