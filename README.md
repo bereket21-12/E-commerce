@@ -49,13 +49,13 @@
       3.3 :total_price
       3.4 :shipping_address	
       3.5 :order_date
-   4: catarory
+    4: catarory
       4.1 :category_name
       4.2 :category_id
-   5 :inventory
+    5 :inventory
       5.1 :product_id
-      5.2 :quantity	
-   6 :review
+      5.2 :quantity
+    6 :review
      6.1 :review_id
      6.2 :product_id
      6.3 :customer_id
