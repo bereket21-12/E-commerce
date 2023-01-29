@@ -25,6 +25,7 @@
 
 -----Database design--------
  
+---
  # Database Name : E-commerce
  # Tables :
     1:user
@@ -49,7 +50,7 @@
       3.4 :shipping_address	
       3.5 :order_date
    4: catarory
-      4.1 :	category_name
+      4.1 :category_name
       4.2 :category_id
    5 :inventory
       5.1 :product_id
