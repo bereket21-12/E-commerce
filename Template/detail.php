@@ -264,3 +264,12 @@ include("./Commen/navbar.php");
 
     include("./Commen/footer.php");
     ?>
+
+
+      <?php
+    include './database/Dbcontroller.php';
+    $db = new DBConnection();
+    $conn = $db->getConnection();
+
+    // use $conn for database operations
+    ?>
