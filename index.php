@@ -1,6 +1,4 @@
 <?php
-<<<<<<< HEAD
- 
   include("./Commen/header.php")
 ?>
 
@@ -17,7 +15,6 @@
   include("recent_products.php");
 
   include("vendor.php");
-=======
 
 include("./Common/header.php")
 ?>
@@ -35,15 +32,8 @@ include("featured_products.php");
 include("recent_products.php");
 
 include("vendor.php");
->>>>>>> 6c1dd09 (added admin1.php and made some changes on cart.php)
-
 ?>
 
 <?php
-<<<<<<< HEAD
-include("./Commen/footer.php");
-
-=======
 include("./Common/footer.php");
->>>>>>> 6c1dd09 (added admin1.php and made some changes on cart.php)
 ?>
