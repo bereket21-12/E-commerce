@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body {
+    /* display: flex; */
+    background-color: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
+    /* flex-direction: column; */
+    /* justify-content: center;
+    align-items: center ;
+    align-content: center; */
+    /* text-align: center; */
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control {
+    border-radius: 0;
+    border-color: #d1d1d1;
+    background-color: #fff;
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+    width: 30rem ;
+    border-radius: 15px;
+}
+
+.form-control:focus {
+    border-color: #ffee00;
+    box-shadow: 0 0 0 0.2rem rgba(246, 255, 0, 0.25);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: #ffcc00;
+    border-color: #000000;
+}
+
+.btn-primary:hover {
+    background-color: #000000;
+    border-color: #ffcc00;
+}
+
+.signup-form {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+h2{
+    font-weight: 900;
+    color: #000000;
+}
+.signup-form h2 {
+    margin-bottom: 30px;
+    font-weight: 900;
+    color: #000000;
+}
+
+.signup-form .form-group {
+    margin-bottom: 20px;
+}
+
+.signup-form .form-control {
+    height: 50px;
+    font-size: 16px;
+}
+
+.signup-form .btn {
+    height: 50px;
+    font-size: 16px;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+.btn{
+    background-color: #ffd333;
+    color: #000;
+    border-radius: 15px;
+    font-weight: 800;
+    margin-bottom: 2em;
+    width: 30em;
+}
+
+.btn:hover {
+    background-color: rgb(0, 0, 0);
+    color: #ffd333;
+  }
+  label{
+    font-weight: 800;
+  }
+  input:hover::-webkit-input-placeholder {
+    color: #ffd333;
+  }
+  /* input:hover:-moz-placeholder {
+    color: #ffd333;
+  } */
+  /* input:hover::-moz-placeholder {
+    color: #ffd333;
+  } */
+  /* input:hover:-ms-input-placeholder {
+    color: #ffd333;
+  } */
+  input:hover + label {
+    display: block;
+    position: absolute;
+    top: -1.5em;
+    left: 0;
+    background: #ffd333;
+    padding: 0 0.5em;
+  }
+  
