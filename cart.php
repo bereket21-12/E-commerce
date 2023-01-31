@@ -6,24 +6,8 @@ include("./Commen/navbar.php");
 
 ?>
 
-
-<!-- Breadcrumb Start -->
-    <div class="container-fluid">
-        <div class="row px-xl-5">
-            <div class="col-12">
-                <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Shop</a>
-                    <span class="breadcrumb-item active">Shopping Cart</span>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb End -->
-
-
     <!-- Cart Start -->
-    <div class="container-fluid">
+    <div class="container-fluid" style=" margin-top: 5rem;">
         <div class="row px-xl-5">
             <div class="col-lg-8 table-responsive mb-5">
                 <table class="table table-light table-borderless table-hover text-center mb-0">
@@ -146,14 +130,6 @@ include("./Commen/navbar.php");
                 </table>
             </div>
             <div class="col-lg-4">
-                <form class="mb-30" action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control border-0 p-4" placeholder="Coupon Code">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary">Apply Coupon</button>
-                        </div>
-                    </div>
-                </form>
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span></h5>
                 <div class="bg-light p-30 mb-5">
                     <div class="border-bottom pb-2">
@@ -183,4 +159,3 @@ include("./Commen/navbar.php");
 
     include("./Commen/footer.php")
     ?>
-
