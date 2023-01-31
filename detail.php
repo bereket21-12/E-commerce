@@ -1,25 +1,10 @@
 <?php
-include("./Commen/header.php");
-include("./Commen/navbar.php");
+include("./Common/header.php");
+include("./Common/navbar.php");
 ?>
 
-<!-- Breadcrumb Start -->
-    <div class="container-fluid">
-        <div class="row px-xl-5">
-            <div class="col-12">
-                <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Shop</a>
-                    <span class="breadcrumb-item active">Shop Detail</span>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb End -->
-
-
-    <!-- Shop Detail Start -->
-    <div class="container-fluid pb-5">
+<!-- Shop Detail Start -->
+    <div class="container-fluid pb-5 "style=" margin-top: 5rem;">
         <div class="row px-xl-5">
             <div class="col-lg-5 mb-30">
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
@@ -63,7 +48,7 @@ include("./Commen/navbar.php");
                     <p class="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit
                         clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea
                         Nonumy</p>
-                    <div class="d-flex mb-3">
+                    <!-- <div class="d-flex mb-3">
                         <strong class="text-dark mr-3">Sizes:</strong>
                         <form>
                             <div class="custom-control custom-radio custom-control-inline">
@@ -112,7 +97,7 @@ include("./Commen/navbar.php");
                                 <label class="custom-control-label" for="color-5">Green</label>
                             </div>
                         </form>
-                    </div>
+                    </div> -->
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 130px;">
                             <div class="input-group-btn">
@@ -262,7 +247,7 @@ include("./Commen/navbar.php");
     <!-- Shop Detail End -->
     <?php
 
-    include("./Commen/footer.php");
+    include("./Common/footer.php");
     ?>
 
 
