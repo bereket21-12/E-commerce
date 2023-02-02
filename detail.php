@@ -1,6 +1,6 @@
 <?php
-include("./Commen/header.php");
-include("./Commen/navbar.php");
+include("./Common/header.php");
+include("./Common/navbar.php");
 ?>
 
 <!-- Breadcrumb Start -->
@@ -262,7 +262,7 @@ include("./Commen/navbar.php");
     <!-- Shop Detail End -->
     <?php
 
-    include("./Commen/footer.php");
+    include("./Common/footer.php");
     ?>
 
 

@@ -1,7 +1,7 @@
    <?php
 
-   include("./Commen/header.php");
-   include("./Commen/navbar.php");
+   include("./Common/header.php");
+   include("./Common/navbar.php");
    ?>
    
    <!-- Breadcrumb Start -->
@@ -113,5 +113,5 @@
     <!-- Contact End -->
     <?php
 
-    include("./Commen/footer.php");
+    include("./Common/footer.php");
     ?>

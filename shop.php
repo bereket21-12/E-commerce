@@ -1,6 +1,6 @@
 <?php
-include("./Commen/header.php");
-include("./Commen/navbar.php");
+include("./Common/header.php");
+include("./Common/navbar.php");
 ?>
    
    
@@ -420,5 +420,5 @@ include("./Commen/navbar.php");
             <!-- Shop Product End -->
 
     <?php
-    include("./Commen/footer.php");
+    include("./Common/footer.php");
     ?>

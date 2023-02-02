@@ -1,11 +1,11 @@
 <?php
  
-  include("./Commen/header.php")
+  include("./Common/header.php")
 ?>
 
 <?php
  
-  include("./Commen/navbar.php");
+  include("./Common/navbar.php");
 
   include("carousel.php");
 
@@ -20,6 +20,6 @@
 ?>
 
 <?php
-include("./Commen/footer.php");
+include("./Common/footer.php");
 
 ?>
