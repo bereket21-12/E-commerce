@@ -1,23 +1,16 @@
 <?php
+// database connection details
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "E-commerce";
 
-class DBConnection {
-    
-    private $servername = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $dbname = "E-commerce";
-    private $conn;
+// create a database connection
+$conn = mysqli_connect($host, $username, $password, $dbname);
 
-    public function __construct() {
-        $this->conn = mysqli_connect($this->servername, $this->username, $this->password, $this->dbname);
-        if (!$this->conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
-        // echo "connected";
-    }
-
-    public function getConnection() {
-        return $this->conn;
-    }
+// check for connection errors
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-
+// echo "Connected Successfully!"."Oh yeahhhh!";
+?>

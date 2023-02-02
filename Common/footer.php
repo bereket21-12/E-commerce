@@ -4,11 +4,11 @@
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
                 <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor. Rebum tempor no vero est magna amet no</p>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
-                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, Wolkite University, Wolkite</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>abelzeleke5173@gmail.com</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+251 935 353626</p>
             </div>
-            <div class="col-lg-8 col-md-12 justify-content-between" >
+            <div class="col-lg-8 col-md-12 justify-content-between">
                 <div class="row justify-content-center" style="justify-content: space-around !important">
                     <div class="col-md-4 mb-5">
                         <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
@@ -24,9 +24,9 @@
                     <div class="col-md-4 mb-5">
                         <h5 class="text-secondary text-uppercase mb-4">Newsletter</h5>
                         <p>Duo stet tempor ipsum sit amet magna ipsum tempor est</p>
-                        <form action="">
+                        <form action="newsletter_handler.php" method="post">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Your Email Address">
+                                <input type="email" class="form-control" name="email" placeholder="Your Email Address">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary">Sign Up</button>
                                 </div>
@@ -63,6 +63,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
+    </body>
 
-</html>
+    </html>
