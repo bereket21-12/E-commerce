@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header('Location: login1.php');
+    exit;
+}
+
+
 include("./Common/header.php");
 include("./Common/navbar.php");
 ?>
@@ -204,9 +211,5 @@ include("./Common/navbar.php");
 
 
       <?php
-    include './database/Dbcontroller.php';
-   
-    // $conn = $db->getConnection();
-
-    // use $conn for database operations
+    include './database/Dbcontroller.php'; 
     ?>

@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header('Location: login1.php');
+    exit;
+}
+
 
 include("./Common/header.php");
 include("./Common/navbar.php");
