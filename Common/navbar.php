@@ -74,7 +74,7 @@
                                 </form>
                             </div>
                         </div>
-                        <a href="./login.php" class="text-white nav-link">Login</a>
+                        <a href="./logout.php" class="text-white nav-link">Logout</a>
 
                         <a href="" class="btn px-0 ">
                             <i class="fas fa-heart text-primary"></i>

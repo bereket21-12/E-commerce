@@ -47,7 +47,7 @@
         <div class="button">
           <input type="submit" name="submit" value="Signup" />
           <div class="login_link">
-            <a href="./login.html">Back to Login</a>
+            <a href="./login1.php">Back to Login</a>
           </div>
         </div>
       </form>

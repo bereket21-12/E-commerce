@@ -1,21 +1,25 @@
 <?php
- 
-  include("./Common/header.php")
+session_start();
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+  header('Location: login.php');
+  exit;
+}
+include("./Common/header.php")
 ?>
 
 <?php
- 
-  include("./Common/navbar.php");
 
-  include("carousel.php");
+include("./Common/navbar.php");
 
-  include("catagory.php");
+include("carousel.php");
 
-  include("featured_products.php");
+include("catagory.php");
 
-  include("recent_products.php");
+include("featured_products.php");
 
-  include("vendor.php");
+include("recent_products.php");
+
+include("vendor.php");
 
 ?>
 
