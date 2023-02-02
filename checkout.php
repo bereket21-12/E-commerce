@@ -1,7 +1,7 @@
 <?php
 
-include("./Commen/header.php");
-include("./Commen/navbar.php");
+include("./Common/header.php");
+include("./Common/navbar.php");
 ?>
 
 <!-- Checkout Start -->
@@ -170,5 +170,5 @@ include("./Commen/navbar.php");
 
     <?php
 
-    include("./Commen/footer.php")
+    include("./Common/footer.php")
     ?>

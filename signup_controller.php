@@ -1,4 +1,4 @@
-<?php
+<!-- ?php
 //this will display the error message if there is any 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -33,5 +33,47 @@ $conn = $db->getConnection();
     }
     
     mysqli_close($conn);
+
+? -->
+
+<?php
+
+if (isset($_POST['submit'])) {
+  $firstName = $_POST['firstName'];
+  $lastName = $_POST['lastName'];
+  $username = $_POST['username'];
+  $email = $_POST['email'];
+  $address = $_POST['address'];
+  $password = $_POST['password'];
+  $confirmPassword = $_POST['confirmPassword'];
+//   include "Dbcontroller.php";
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "E-commerce";
+
+// create a database connection
+$conn = mysqli_connect($host, $username, $password, $dbname);
+  // Perform validation and sanitization of input data
+  echo "Does it work?";
+  // Check if passwords match
+  if ($password != $confirmPassword) {
+    // Return error message
+  }
+  
+  // Hash password for security
+  $password = password_hash($password, PASSWORD_DEFAULT);
+  
+  // Insert data into database
+  $sql = "INSERT INTO Customer (first_name, last_name, email, password, address, role, confirmed, username) VALUES ('$firstName', '$lastName', '$email', '.md5($password)', '$address', 'user', '0','$username' )";
+//   $sql = "INSERT INTO Customer (first_name, last_name, username, email, address, password)
+//           VALUES ('$firstName', '$lastName', '$username', '$email', '$address', '$password')";
+  if ($conn->query($sql) === TRUE) {
+    // Redirect to login page
+    header("Location: login1.php");
+  } else {
+    // Return error message
+  }
+}
 
 ?>
