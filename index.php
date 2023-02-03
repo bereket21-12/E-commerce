@@ -6,6 +6,8 @@
 <?php
  
   include("./Common/navbar.php");
+  
+
 
   include("carousel.php");
 
