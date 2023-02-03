@@ -2,6 +2,7 @@
 include("./Common/header.php");
 include("./Common/navbar.php");
 include "./database/Dbcontroller.php";
+session_start();
 
 $db = new DBConnection();
 $conn = $db->getConnection();
@@ -57,7 +58,9 @@ $row = mysqli_fetch_assoc($result);
                     </a>
                 </div>
             </div>
+<!-- product_information start -->
 
+<from name ="cart_form" method ="post" action="carthandller.php">
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
                     <h3><?php echo $row["product_name"]; ?></h3>
@@ -139,9 +142,12 @@ $row = mysqli_fetch_assoc($result);
                                 </button>
                             </div>
                         </div>
-                        <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To
-                            Cart</button>
+                        <a   type="submit" class="btn btn-primary px-3" href="carthandller.php?product_id=<?php echo $procuct_id; ?>"><i class="fa fa-shopping-cart mr-1" ></i> Add To
+                            Cart</a>
                     </div>
+</from>
+<!-- product_information ends here -->
+
                     <div class="d-flex pt-2">
                         <strong class="text-dark mr-2">Share on:</strong>
                         <div class="d-inline-flex">

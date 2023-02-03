@@ -17,6 +17,10 @@ if (mysqli_num_rows($result) > 0) {
     session_start();
     $_SESSION["email"] = $email;
     $_SESSION["is_loggedin"] = true;
+    $_SESSION["product_name"] = $product_name;
+    $_SESSION["product_amount"] = $product_amount;
+
+
 
     header("Location: index.php");
 
