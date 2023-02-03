@@ -16,6 +16,8 @@ if (mysqli_num_rows($result) > 0) {
     // do something, for example start a session
     session_start();
     $_SESSION["email"] = $email;
+    $_SESSION["is_loggedin"] = true;
+
     header("Location: index.php");
 
     } else {
