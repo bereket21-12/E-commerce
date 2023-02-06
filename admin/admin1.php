@@ -34,9 +34,6 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="index3.html" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
             </ul>
 
             <!-- Right navbar links -->
@@ -71,7 +68,7 @@
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">E-Commerce</span>
             </a>
 
             <!-- Sidebar -->
@@ -79,10 +76,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="dist/img/rsz_avatarmaker.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">Abel Zeleke</a>
                     </div>
                 </div>
 
@@ -92,7 +89,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
+                            <a href="admin1.php" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -108,7 +105,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="add_products.php" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
                                 <p>
                                     Add Product
@@ -135,80 +132,103 @@
                             <div class="card">
                                 <div class="card-body p-0">
                                     <div class="table-responsive">
+                                        <?php
+                                        // Connect to the database
+                                        $conn = mysqli_connect("localhost", "root", "", "E-commerce");
+
+                                        // Set the number of products per page
+                                        $products_per_page = 15;
+
+                                        // Get the total number of products
+                                        $total_products_query = "SELECT COUNT(product_id) AS total_products FROM Products";
+                                        $total_products_result = mysqli_query($conn, $total_products_query);
+                                        $total_products_row = mysqli_fetch_assoc($total_products_result);
+                                        $total_products = $total_products_row['total_products'];
+
+                                        // Calculate the number of pages
+                                        $num_pages = ceil($total_products / $products_per_page);
+
+                                        // Get the current page number from the URL, default to 1 if not set
+                                        $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+                                        // Make sure the page number is within the valid range
+                                        if ($current_page < 1) {
+                                            $current_page = 1;
+                                        } elseif ($current_page > $num_pages) {
+                                            $current_page = $num_pages;
+                                        }
+
+                                        // Calculate the starting product number for the current page
+                                        $start_product = ($current_page - 1) * $products_per_page;
+
+                                        // Query to fetch the products for the current page
+                                        $query = "SELECT product_id, category_type, product_name FROM Products LIMIT $start_product, $products_per_page";
+                                        $result = mysqli_query($conn, $query);
+
+                                        ?>
                                         <table class="table m-0">
                                             <thead>
                                                 <tr>
                                                     <th>Product ID</th>
+                                                    <th>Product Type</th>
                                                     <th>Product Name</th>
                                                     <th>Edit</th>
                                                     <th>Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td><a href="pages/examples/invoice.html">124389</a></td>
-                                                    <td>T-Shirt</td>
-                                                    <td>
-                                                    <a href="#" class="nav-link">    
-                                                    <i class="fas fa-edit" style="color:#ffc107;"></i>
-                                                    </a>
-                                                    </td>
-                                                    <td>
-                                                    <a href="#" class="nav-link">
-                                                    <i class="fas fa-trash" style="color:#dc3545;"></i>
-                                                    </a>
-                                                    </td>
-                                                </tr>
-                                                <!-- <tr>
-                                                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                                    <td>Samsung Smart TV</td>
-                                                    <td><span class="badge badge-warning">Pending</span></td>
-                                                    <td>
-                                                        <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                                    <td>iPhone 6 Plus</td>
-                                                    <td><span class="badge badge-danger">Delivered</span></td>
-                                                    <td>
-                                                        <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                                    <td>Samsung Smart TV</td>
-                                                    <td><span class="badge badge-info">Processing</span></td>
-                                                    <td>
-                                                        <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                                    <td>Samsung Smart TV</td>
-                                                    <td><span class="badge badge-warning">Pending</span></td>
-                                                    <td>
-                                                        <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                                    <td>iPhone 6 Plus</td>
-                                                    <td><span class="badge badge-danger">Delivered</span></td>
-                                                    <td>
-                                                        <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                                    <td>Call of Duty IV</td>
-                                                    <td><span class="badge badge-success">Shipped</span></td>
-                                                    <td>
-                                                        <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                                    </td>
-                                                </tr> -->
+                                                <?php
+                                                // Loop through each row in the result
+                                                while ($row = mysqli_fetch_array($result)) {
+                                                    echo "<tr>";
+                                                    echo "<td><a href='pages/examples/invoice.html'>" . $row['product_id'] . "</a></td>";
+                                                    echo "<td>" . $row['category_type'] . "</td>";
+                                                    echo "<td>" . $row['product_name'] . "</td>";
+                                                    echo "<td><a href='#' class='nav-link'><i class='fas fa-edit' style='color:#ffc107;'></i></a></td>";
+                                                    echo "<td><a href='delete_product.php?id=" . $row['product_id'] . "' class='nav-link'><i class='fas fa-trash' style='color:#dc3545;'></i></a></td>";
+                                                    echo "</tr>";
+                                                }
+                                                ?>
                                             </tbody>
                                         </table>
+                                        <!-- Pagination -->
+                                        <nav aria-label="Product Pagination">
+                                            <ul class="pagination justify-content-center">
+                                                <?php
+                                                // Show previous button if not on the first page
+                                                if ($current_page != 1) {
+                                                    echo '<li class="page-item">
+            <a class="page-link" href="?page=' . ($current_page - 1) . '" aria-label="Previous">
+            <span aria-hidden="true">«</span>
+            <span class="sr-only">Previous</span>
+            </a>
+            </li>';
+                                                }
+                                                // Show the page numbers
+                                                for ($i = 1; $i <= $total_pages; $i++) {
+                                                    if ($i == $current_page) {
+                                                        echo '<li class="page-item active">
+                    <a class="page-link" href="?page=' . $i . '">' . $i . '</a>
+                  </li>';
+                                                    } else {
+                                                        echo '<li class="page-item">
+                    <a class="page-link" href="?page=' . $i . '">' . $i . '</a>
+                  </li>';
+                                                    }
+                                                }
+
+                                                // Show next button if not on the last page
+                                                if ($current_page != $total_pages) {
+                                                    echo '<li class="page-item">
+                <a class="page-link" href="?page=' . ($current_page + 1) . '" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+              </li>';
+                                                }
+                                                ?>
+                                            </ul>
+                                        </nav>
                                     </div>
                                     <!-- /.table-responsive -->
                                 </div>
@@ -220,7 +240,7 @@
                             <div class="info-box mb-3 bg-success">
                                 <span class="info-box-icon"><i class="fas fa-users"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Members</span>
+                                    <span class="info-box-text">Customers</span>
                                     <span class="info-box-number">2,000</span>
                                 </div>
                             </div>
