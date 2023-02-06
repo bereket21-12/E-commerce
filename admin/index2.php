@@ -1,7 +1,7 @@
 <?php
 
 include("./common/header.php");
-include("./common/navbar.php");
+// include("./common/navbar.php");
 include("./common/sidebar.php");
 
 ?>
