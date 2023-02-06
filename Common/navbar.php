@@ -5,9 +5,9 @@
     <div class="container-fluid bg-dark justify-content-between">
         <div class="row">
             <div class="col-lg-3 d-none d-lg-inline-flex">
-                <!-- <a class="navbar-brand" href="./index.html">
+                <a class="navbar-brand" href="./index.html">
                     <img src="img/logo-color.png" width="70rem" height="60rem" style="padding: 0 5px; border-radius: 50%;" alt="">
-                </a> -->
+                </a>
                 <a class="btn d-flex align-items-center justify-content-between bg-primary w-100 " data-toggle="collapse" href="#navbar-vertical" style="height: 100%;">
                     <h5 class="text-dark m-0"><i class="fa fa-bars mr-2 "></i>Categories</h5>
                     <i class="fa fa-angle-down text-dark"></i>
