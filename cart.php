@@ -1,6 +1,6 @@
 <?php
 session_start();
-$array = $_SESSION['item'];
+$array = array_unique($_SESSION['item'],SORT_REGULAR);
 
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);

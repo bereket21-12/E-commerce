@@ -27,7 +27,7 @@ $result = mysqli_query($conn, $sql);
     }
 
 
-  $_SESSION['counter'] ++;
+  // $_SESSION['counter'] ++;
   $sessionArray = $_SESSION['item'];
 
 

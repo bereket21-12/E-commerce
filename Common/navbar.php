@@ -1,5 +1,8 @@
 <?php
 session_start();
+$cart_array = array_unique($_SESSION['item'],SORT_REGULAR);
+$cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
+
 ?>
 <body>
 
@@ -81,11 +84,11 @@ session_start();
 
                         <a href="favorite.php" class="btn px-0 ">
                             <i class="fas fa-heart text-primary"></i>
-                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"><?php echo $_SESSION["fcounter"]; ?></span>
+                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"><?php echo sizeof($cfavorite_array); ?></span>
                         </a>
                         <a href="cart.php" class="btn px-0 ml-3">
                             <i class="fas fa-shopping-cart text-primary"></i>
-                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"><?php echo $_SESSION["ccounter"]; ?></span>
+                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"><?php echo sizeof($cart_array); ?></span>
                         </a>
                     </div>
                 </nav>

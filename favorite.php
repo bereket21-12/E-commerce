@@ -1,6 +1,6 @@
 <?php
 session_start();
-$array = $_SESSION['favorite'];
+$array = array_unique($_SESSION['favorite'],SORT_REGULAR);
 $procuct_id = $_GET['product_id'];
 
 

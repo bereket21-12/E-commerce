@@ -28,7 +28,7 @@ $result = mysqli_query($conn, $sql);
     }
 
 
-  $_SESSION['fcounter'] ++;
+  // $_SESSION['fcounter'] ++;
   
 
 
