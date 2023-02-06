@@ -16,9 +16,13 @@ if (mysqli_num_rows($result) > 0) {
     // do something, for example start a session
     session_start();
 $_SESSION["item"] = array();
+$_SESSION["favorite"] = array();
+
 
     $_SESSION["email"] = $email;
-    $_SESSION["counter"] = 0;
+    $_SESSION["ccounter"] = 0;
+    $_SESSION["fcounter"] = 0;
+
 
     $_SESSION["is_loggedin"] = true;
     $_SESSION["product_amount"] = $product_amount;
