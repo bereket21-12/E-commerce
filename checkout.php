@@ -1,4 +1,6 @@
 <?php
+session_start();
+$array = $_SESSION['item'];
 
 include("./Common/header.php");
 include("./Common/navbar.php");
@@ -143,26 +145,22 @@ include("./Common/navbar.php");
             </div>
             <div class="col-lg-4">
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Order Total</span></h5>
+                
                 <div class="bg-light p-30 mb-5">
+                    <h6 class="mb-3">Products</h6>
+    <?php foreach( $array as $product):  ?>
                     <div class="border-bottom">
-                        <h6 class="mb-3">Products</h6>
                         <div class="d-flex justify-content-between">
-                            <p>Product Name 1</p>
-                            <p>$150</p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p>Product Name 2</p>
-                            <p>$150</p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p>Product Name 3</p>
-                            <p>$150</p>
+                            <p><?php echo $product['product_name']; ?></p>
+                            <p>$<?php echo $total +=$product['price']; $product['price']; ?></p>
                         </div>
                     </div>
+    <?php endforeach; ?>
+
                     <div class="border-bottom pt-3 pb-2">
                         <div class="d-flex justify-content-between mb-3">
                             <h6>Subtotal</h6>
-                            <h6>$150</h6>
+                            <h6>$ <?php echo $total; ?></h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
@@ -172,7 +170,7 @@ include("./Common/navbar.php");
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Total</h5>
-                            <h5>$160</h5>
+                            <h5>$ <?php  echo $total+10; ?></h5>
                         </div>
                     </div>
                 </div>

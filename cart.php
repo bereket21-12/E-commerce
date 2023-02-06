@@ -1,7 +1,15 @@
 <?php
+session_start();
+$array = $_SESSION['item'];
+
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 include("./Common/header.php");
 include("./Common/navbar.php");
+include("./carthandller.php");
+// include("./fetchpro.php")
+
 
 
 ?>
@@ -37,9 +45,13 @@ include("./Common/navbar.php");
                         </tr>
                     </thead>
                     <tbody class="align-middle">
+
+                    
+    <?php foreach( $array as $product):  ?>
+
                         <tr>
-                            <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> Product Name</td>
-                            <td class="align-middle">$150</td>
+                            <td class="align-middle"><img src= <?php echo $product["product_img_path"]; ?> alt="" style="width: 50px;"> <?php echo $product["product_name"]; ?></td>
+                            <td class="align-middle"> <?php echo $product['price']; ?></td>
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
@@ -58,7 +70,10 @@ include("./Common/navbar.php");
                             <td class="align-middle">$150</td>
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                         </tr>
-                        <tr>
+
+    <?php endforeach; ?>
+
+                        <!-- <tr>
                             <td class="align-middle"><img src="img/product-2.jpg" alt="" style="width: 50px;"> Product Name</td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle">
@@ -141,7 +156,7 @@ include("./Common/navbar.php");
                             </td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -157,9 +172,18 @@ include("./Common/navbar.php");
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span></h5>
                 <div class="bg-light p-30 mb-5">
                     <div class="border-bottom pb-2">
+                        <h6 class="mb-3">Products</h6>
+    <?php foreach( $array as $product):  ?>
+                    <div class="border-bottom">
+                        <div class="d-flex justify-content-between">
+                            <p><?php echo $product['product_name']; ?></p>
+                            <p>$ <?php  $total +=$product['price'];  echo $product['price']; ?></p>
+                        </div>
+                    </div>
+    <?php endforeach; ?>
                         <div class="d-flex justify-content-between mb-3">
                             <h6>Subtotal</h6>
-                            <h6>$150</h6>
+                            <h6>$ <?php  echo $total; ?></h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
@@ -169,7 +193,7 @@ include("./Common/navbar.php");
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Total</h5>
-                            <h5>$160</h5>
+                            <h5>$ <?php  echo $total+10; ?></h5>
                         </div>
                         <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
                     </div>

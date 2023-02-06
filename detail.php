@@ -60,10 +60,10 @@ $row = mysqli_fetch_assoc($result);
             </div>
 <!-- product_information start -->
 
-<from name ="cart_form" method ="post" action="carthandller.php">
+<form name ="cart_form" method ="post" action="carthandller.php">
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
-                    <h3><?php echo $row["product_name"]; ?></h3>
+                    <h3 name="product_name"><?php echo $row["product_name"]; ?></h3>
                     <div class="d-flex mb-3">
                         <div class="text-primary mr-2">
                             <small class="fas fa-star"></small>
@@ -74,7 +74,7 @@ $row = mysqli_fetch_assoc($result);
                         </div>
                         <small class="pt-1">(99 Reviews)</small>
                     </div>
-                    <h3 class="font-weight-semi-bold mb-4">$<?php echo $row['price']; ?></h3>
+                    <h3 name="product_price" class="font-weight-semi-bold mb-4">$<?php echo $row['price']; ?></h3>
                     <p class="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit
                         clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea
                         Nonumy</p>
@@ -142,10 +142,10 @@ $row = mysqli_fetch_assoc($result);
                                 </button>
                             </div>
                         </div>
-                        <a   type="submit" class="btn btn-primary px-3" href="carthandller.php?product_id=<?php echo $procuct_id; ?>"><i class="fa fa-shopping-cart mr-1" ></i> Add To
+                        <a  name ="add-to-cart" type="submit" class="btn btn-primary px-3" href="carthandller.php?product_id=<?php echo $procuct_id; ?>"><i class="fa fa-shopping-cart mr-1" ></i> Add To
                             Cart</a>
                     </div>
-</from>
+</form>
 <!-- product_information ends here -->
 
                     <div class="d-flex pt-2">
