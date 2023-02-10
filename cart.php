@@ -205,6 +205,6 @@ include("./carthandller.php");
 
     <?php
 
-    include("./Common/footer.php")
+    include("./Common/footer.php");
     ?>
 

@@ -35,7 +35,6 @@
                
                 </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer" style = "padding-left :300px">
                   <button type="submit" class="btn btn-primary">Add</button>
                 </div>
@@ -44,4 +43,3 @@
             <!-- /.card -->
 </div>
 </section>
-

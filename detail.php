@@ -40,7 +40,7 @@ $row = mysqli_fetch_assoc($result);
                         <div class="carousel-item active">
                             <img class="w-100 h-100" src=<?php echo $row["image_url"]; ?> alt="Image">
                         </div>
-                        <div class="carousel-item">
+                        <!-- <div class="carousel-item">
                             <img class="w-100 h-100" src="img/product-2.jpg" alt="Image">
                         </div>
                         <div class="carousel-item">
@@ -48,14 +48,14 @@ $row = mysqli_fetch_assoc($result);
                         </div>
                         <div class="carousel-item">
                             <img class="w-100 h-100" src="img/product-4.jpg" alt="Image">
-                        </div>
+                        </div> -->
                     </div>
-                    <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
+                    <!-- <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
                         <i class="fa fa-2x fa-angle-left text-dark"></i>
                     </a>
                     <a class="carousel-control-next" href="#product-carousel" data-slide="next">
                         <i class="fa fa-2x fa-angle-right text-dark"></i>
-                    </a>
+                    </a> -->
                 </div>
             </div>
 <!-- product_information start -->
@@ -146,6 +146,7 @@ $row = mysqli_fetch_assoc($result);
                             Cart</a>
                     </div>
 </form>
+
 <!-- product_information ends here -->
 
                     <div class="d-flex pt-2">

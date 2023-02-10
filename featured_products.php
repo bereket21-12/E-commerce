@@ -7,6 +7,8 @@ include("fetchpro.php");
         <div class="row px-xl-5">
 
 
+
+
 <?php foreach($products as $product): ?>
 
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
