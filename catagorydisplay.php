@@ -1,10 +1,13 @@
 <?php
-include("./catagorycontroller.php");
+include("./navcatagory.php");
+include("./Common/header.php");
+include("./Common/navbar.php");
+
 
 
 ?>
     <div class="container-fluid pt-5 pb-3">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured Products</span></h2>
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Products</span></h2>
         <div class="row px-xl-5">
 
 
@@ -43,3 +46,7 @@ include("./catagorycontroller.php");
     <?php endforeach; ?>
         </div>
         </div>
+
+<?php
+include("./Common/footer.php");
+?>

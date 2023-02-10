@@ -23,11 +23,11 @@ $cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
                         <div class="nav-item dropdown dropright">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Men<i class="fa fa-angle-right float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                <a href="fetchpro.php?category_id=<?php echo $category_id=1;?>" class="dropdown-item">Jeans</a>
-                                <a href="fetchpro.php?category_id=<?php echo $category_id;?>"  class="dropdown-item">Shirts</a>
-                                <a href="fetchpro.php?category_id=<?php echo $category_id;?>"  class="dropdown-item">T-shirt</a>
-                                <a href="fetchpro.php?category_id=<?php echo $category_id;?>"  class="dropdown-item">Full-suit</a>
-                                <a href="fetchpro.php?category_id=<?php echo $category_id;?>"  class="dropdown-item">Sweatshirt_Hoodies</a>
+                                <a href="catagorydisplay.php?category_id=<?php echo $category_id=2;?>" class="dropdown-item">Jeans</a>
+                                <a href="catagorydisplay.php?category_id=<?php echo $category_id=3;?>"  class="dropdown-item">Shirts</a>
+                                <a href="catagorydisplay.php?category_id=<?php echo $category_id=5;?>"  class="dropdown-item">T-shirt</a>
+                                <a href="catagorydisplay.php?category_id=<?php echo $category_id=1;?>"  class="dropdown-item">Full-suit</a>
+                                <a href="catagorydisplay.php?category_id=<?php echo $category_id=4;?>"  class="dropdown-item">Sweatshirt_Hoodies</a>
                 
 
                             </div>
@@ -36,11 +36,11 @@ $cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
                         <div class="nav-item dropdown dropright">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Women<i class="fa fa-angle-right float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                <a href="" class="dropdown-item">Jeans</a>
-                                <a href="" class="dropdown-item">Dress</a>
-                                <a href="" class="dropdown-item">Jackets_coats</a>
-                                <a href="" class="dropdown-item">Skirt</a>
-                                <a href="" class="dropdown-item">Sweaters</a>
+                                <a href="catagorydisplay.php?category_id=<?php echo $category_id=8;?>" class="dropdown-item">Jeans</a>
+                                <a href="catagorydisplay.php?category_id=<?php echo $category_id=6;?>" class="dropdown-item">Dress</a>
+                                <a href="catagorydisplay.php?category_id=<?php echo $category_id=7;?>" class="dropdown-item">Jackets_coats</a>
+                                <a href="catagorydisplay.php?category_id=<?php echo $category_id=9;?>" class="dropdown-item">Skirt</a>
+                                <a href="catagorydisplay.php?category_id=<?php echo $category_id=10;?>" class="dropdown-item">Sweaters</a>
 
                             </div>
                         </div>
