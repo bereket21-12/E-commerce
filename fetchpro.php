@@ -1,18 +1,9 @@
 <?php
 
-include "./database/Dbcontroller.php";
+// include "./database/Dbcontroller.php";
 
 $db = new DBConnection();
 $conn = $db->getConnection();
-
-// $sql = "SELECT * FROM product";
-// $result = mysqli_query($conn, $sql); 
-
-//new
-
-
-
-
 
 if (isset($_GET["search"])) {
 
@@ -21,17 +12,13 @@ if (isset($_GET["search"])) {
   $sql = "SELECT * FROM product WHERE product_name LIKE '%$search_term%'";
 
 
-} else {
+} 
+else {
 
   $sql = "SELECT * FROM product";
 }
 
 $result = $conn->query($sql);
-
-
-
-
-//new
 
 if ($result->num_rows > 0) {
 

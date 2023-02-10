@@ -1,5 +1,5 @@
 <?php
-// include "./database/Dbcontroller.php";
+include "./database/Dbcontroller.php";
 include("./Common/header.php");
 include("./Common/navbar.php");
 

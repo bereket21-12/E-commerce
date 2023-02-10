@@ -2,7 +2,6 @@
 session_start();
 $cart_array = array_unique($_SESSION['item'],SORT_REGULAR);
 $cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
-
 ?>
 <body>
 
@@ -20,15 +19,45 @@ $cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
                 </a>
                 <nav class="collapse  position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light mt-5 ml-5" id="navbar-vertical" style="width: calc(80% - 10px); z-index: 999;">
                     <div class="navbar-nav w-100 ">
+
                         <div class="nav-item dropdown dropright">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dresses <i class="fa fa-angle-right float-right mt-1"></i></a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Men<i class="fa fa-angle-right float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                <a href="" class="dropdown-item">Men's Dresses</a>
-                                <a href="" class="dropdown-item">Women's Dresses</a>
-                                <a href="" class="dropdown-item">Baby's Dresses</a>
+                                <a href="fetchpro.php?category_id=<?php echo $category_id=1;?>" class="dropdown-item">Jeans</a>
+                                <a href="fetchpro.php?category_id=<?php echo $category_id;?>"  class="dropdown-item">Shirts</a>
+                                <a href="fetchpro.php?category_id=<?php echo $category_id;?>"  class="dropdown-item">T-shirt</a>
+                                <a href="fetchpro.php?category_id=<?php echo $category_id;?>"  class="dropdown-item">Full-suit</a>
+                                <a href="fetchpro.php?category_id=<?php echo $category_id;?>"  class="dropdown-item">Sweatshirt_Hoodies</a>
+                
+
                             </div>
                         </div>
-                        <a href="" class="nav-item nav-link">Shirts</a>
+
+                        <div class="nav-item dropdown dropright">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Women<i class="fa fa-angle-right float-right mt-1"></i></a>
+                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+                                <a href="" class="dropdown-item">Jeans</a>
+                                <a href="" class="dropdown-item">Dress</a>
+                                <a href="" class="dropdown-item">Jackets_coats</a>
+                                <a href="" class="dropdown-item">Skirt</a>
+                                <a href="" class="dropdown-item">Sweaters</a>
+
+                            </div>
+                        </div>
+
+                        <!-- <div class="nav-item dropdown dropright">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Baby's Dresses <i class="fa fa-angle-right float-right mt-1"></i></a>
+                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+                                <a href="" class="dropdown-item">Jeans</a>
+                                <a href="" class="dropdown-item">Shirts</a>
+                                <a href="" class="dropdown-item">Swimwear</a>
+                                <a href="" class="dropdown-item">Sportswear</a>
+                                <a href="" class="dropdown-item">BJumpsuits</a>
+                                <a href="" class="dropdown-item">Blazers</a>
+
+                            </div> -->
+                        <!-- </div> -->
+                        <!-- <a href="" class="nav-item nav-link">Shirts</a>
                         <a href="" class="nav-item nav-link">Jeans</a>
                         <a href="" class="nav-item nav-link">Swimwear</a>
                         <a href="" class="nav-item nav-link">Sleepwear</a>
@@ -37,7 +66,7 @@ $cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
                         <a href="" class="nav-item nav-link">Blazers</a>
                         <a href="" class="nav-item nav-link">Jackets</a>
                         <a href="" class="nav-item nav-link">Shoes</a>
-                    </div>
+                    </div> -->
                 </nav>
             </div>
             <div class="col-lg">
