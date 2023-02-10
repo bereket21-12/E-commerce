@@ -50,8 +50,8 @@ include("./carthandller.php");
     <?php foreach( $array as $product):  ?>
 
                         <tr>
-                            <td class="align-middle"><img src= <?php echo $product["product_img_path"]; ?> alt="" style="width: 50px;"> <?php echo $product["product_name"]; ?></td>
-                            <td class="align-middle"> <?php echo $product['price']; ?></td>
+                            <td class="align-middle "><img src= <?php echo $product["product_img_path"]; ?> alt="" style="width: 50px;"> <?php echo $product["product_name"]; ?></td>
+                            <td class="align-middle">$ <?php echo $product['price']; ?></td>
                             <td class="align-middle">
                                 <div class="input-group quantity mx-auto" style="width: 100px;">
                                     <div class="input-group-btn">
@@ -195,7 +195,7 @@ include("./carthandller.php");
                             <h5>Total</h5>
                             <h5>$ <?php  echo $total+10; ?></h5>
                         </div>
-                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
+                        <a href="checkout.php" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</a>
                     </div>
                 </div>
             </div>

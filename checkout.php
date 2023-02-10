@@ -1,6 +1,6 @@
 <?php
 session_start();
-$array = $_SESSION['item'];
+$array = array_unique($_SESSION['item'],SORT_REGULAR);
 
 include("./Common/header.php");
 include("./Common/navbar.php");
