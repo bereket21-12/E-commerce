@@ -136,6 +136,10 @@
                                         // Connect to the database
                                         $conn = mysqli_connect("localhost", "root", "", "E-commerce");
 
+                                        $sql = "SELECT COUNT(*) FROM Customer";
+                                        $result1 = mysqli_query($conn, $sql);
+
+
                                         // Set the number of products per page
                                         $products_per_page = 15;
 
@@ -237,11 +241,21 @@
                         </div>
                         <div class="col-md-4">
                             <!-- Info Boxes Style 2 -->
+                            <?php
+                            $conn = mysqli_connect("localhost", "root", "", "E-commerce");
+
+                            $sql = "SELECT COUNT(*) AS total_customers FROM Customer";
+                            $result1 = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_assoc($result);
+                            $total_customers = $row['total_customers'];
+
+                            ?>
                             <div class="info-box mb-3 bg-success">
                                 <span class="info-box-icon"><i class="fas fa-users"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Customers</span>
-                                    <span class="info-box-number">2,000</span>
+                                    <!-- <span>?php echo $result ?></span> -->
+                                    <span class="info-box-number"><?php echo $row['total_customers']; ?></span>
                                 </div>
                             </div>
 

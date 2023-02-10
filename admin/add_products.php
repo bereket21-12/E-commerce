@@ -118,7 +118,7 @@
             </div>
             <!-- /.sidebar -->
         </aside>
-            
+
         <div class="content-wrapper">
             <section class="content-header"></section>
             <!-- Main content -->
@@ -127,110 +127,15 @@
                     <!-- Main row -->
                     <div class="row">
                         <!-- Left col -->
-                        <?php
-                        // Connect to the database
-                        $conn = mysqli_connect("localhost", "root", "", "E-commerce");
-                        ?>
+                        
+                         <!-- Connect to the database -->
                         <div class="col-md-8">
                             <div class="card card-primary">
                                 <div class="card-header">
                                     <h2 class="card-title">Add Products</h2>
                                 </div>
-                                <?php
-
-if(isset($_POST["submit"])) {
-    $productName = $_POST["productName"];
-    $productDescription = $_POST["productDescription"];
-    $price = $_POST["price"];
-    $categoryType = $_POST["categoryType"];
-
-    // get category id based on category type
-    $categoryId = 0;
-    switch ($categoryType) {
-        case "Full_Suits":
-            $categoryId = 1;
-            break;
-        case "Jeans":
-            $categoryId = 2;
-            break;
-        case "Shirt":
-            $categoryId = 3;
-            break;
-        case "Sweatshirts_Hoodies":
-            $categoryId = 4;
-            break;
-        case "T_Shirt":
-            $categoryId = 5;
-            break;
-        case "Dresses":
-            $categoryId = 6;
-            break;
-        case "Jackets_Coats":
-            $categoryId = 7;
-            break;
-        case "Skirts":
-            $categoryId = 8;
-            break;
-        case "Sweaters":
-            $categoryId = 9;
-            break;
-        case "Top":
-            $categoryId = 10;
-            break;
-        default:
-            echo "Invalid category type";
-            exit;
-    }
-
-    // image upload
-    $imageUrl = "";
-    if(isset($_FILES["imageUrl"]) && $_FILES["imageUrl"]["error"] == 0) {
-        $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $filename = $_FILES["imageUrl"]["name"];
-        $filetype = $_FILES["imageUrl"]["type"];
-        $filesize = $_FILES["imageUrl"]["size"];
-
-        // Verify file extension
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if(!array_key_exists($ext, $allowed)) die("Error: Please select a valid file format.");
-
-        // Verify file size - 5MB maximum
-        $maxsize = 5 * 1024 * 1024;
-        if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
-
-        // Verify MYME type of the file
-        if(in_array($filetype, $allowed)) {
-            // Check whether file exists before uploading it
-            if(file_exists("upload/" . $filename)) {
-                echo $filename . " is already exists.";
-            } else {
-                move_uploaded_file($_FILES["imageUrl"]["tmp_name"], "img/" . $filename);
-                $imageUrl = "img/" . $filename;
-            }
-        } else {
-            echo "Error: There was a problem uploading your file. Please try again.";
-        }
-    } else {
-        echo "Error: " . $_FILES["imageUrl"]["error"];
-    }
-
-    // insert product into database
-    $conn = mysqli_connect("localhost", "root", "", "E-commerce");
-    $sql = "INSERT INTO products (productName, productDescription, price, categoryId, imageUrl)
-    VALUES ('$productName', '$productDescription', '$price', '$categoryId', '$imageUrl')";
-    
-    if (mysqli_query($conn, $sql)) {
-        echo "New product added successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-    
-    // Close the connection
-    mysqli_close($conn);}
-?>    
-
                                 <!-- form start -->
-                                <form action="" method="post" enctype="multipart/form-data">
+                                <form action="test.php" method="post" enctype="multipart/form-data">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="productName">Product Name</label>
@@ -240,10 +145,6 @@ if(isset($_POST["submit"])) {
                                             <label for="productDescription">Product Description</label>
                                             <textarea name="productDescription" class="form-control" id="productDescription" placeholder="Enter Product Description"></textarea>
                                         </div>
-                                        <!-- <div class="form-group">
-                                            <label for="categoryId">Category Id</label>
-                                            <input type="text" name="categoryId" class="form-control" id="categoryId" placeholder="Enter Category Id">
-                                        </div> -->
                                         <div class="form-group">
                                             <label for="price">Price</label>
                                             <input type="text" name="price" class="form-control" id="price" placeholder="Enter Price">
@@ -254,7 +155,7 @@ if(isset($_POST["submit"])) {
                                                 <option value="">Select category type</option>
                                                 <optgroup label="Man">
                                                     <option value="Full_Suits">Full Suits</option>
-                                                    <option value="Jeans">Jeans</option>
+                                                    <option value="Jeans For Men">Jeans For Men</option>
                                                     <option value="Shirt">Shirt</option>
                                                     <option value="Sweatshirts_Hoodies">Sweatshirts & Hoodies</option>
                                                     <option value="T_Shirt">T-Shirt</option>
@@ -262,7 +163,7 @@ if(isset($_POST["submit"])) {
                                                 <optgroup label="Woman">
                                                     <option value="Dresses">Dresses</option>
                                                     <option value="Jackets_Coats">Jackets & Coats</option>
-                                                    <option value="Jeans">Jeans</option>
+                                                    <option value="Jeans For Women">Jeans For Women</option>
                                                     <option value="Skirts">Skirts</option>
                                                     <option value="Sweaters">Sweaters</option>
                                                     <option value="Top">Top</option>
@@ -271,12 +172,15 @@ if(isset($_POST["submit"])) {
 
                                         </div>
                                         <div class="form-group">
-                                            <label for="imageUrl">Image</label>
-                                            <input type="file" name="imageUrl" class="form-control" id="imageUrl">
+                                            <label for="product_image">Image</label>
+                                            <input type="file" name="product_image" class="form-control" id="product_image">
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                                 </form>
+
+
+
                             </div>
                         </div>
                         <!-- /.row -->
