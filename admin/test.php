@@ -1,13 +1,15 @@
 <?php
+$conn = mysqli_connect("localhost", "root", "", "E-commerce");
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 if (isset($_POST['submit'])) {
-    $productName = $_POST['productName'];
-    $productDescription = $_POST['productDescription'];
-    $price = $_POST['price'];
-    $categoryType = $_POST['categoryType'];
-    $product_image = $_FILES['product_image']['name'];
+    $productName = mysqli_real_escape_string($conn, $_POST['productName']);
+    $productDescription = mysqli_real_escape_string($conn, $_POST['productDescription']);
+    $price = mysqli_real_escape_string($conn, $_POST['price']);
+    $categoryType = mysqli_real_escape_string($conn, $_POST['categoryType']);
+    $product_image = mysqli_real_escape_string($conn, $_FILES['product_image']['name']);
     $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
     $product_image_folder1 = 'images/' . $product_image;
-
     // echo $product_image_folder1 . '</br>';
 
     switch ($categoryType) {
@@ -51,26 +53,23 @@ if (isset($_POST['submit'])) {
     } else {
         $categoryType = "Woman";
     }
-
-    $conn = mysqli_connect("localhost", "root", "", "E-commerce");
-
+    // $database = mysql_select_db($db, $conn) or die("DB Selection Error: " . mysql_error());
     if (mysqli_connect_error()) {
         die("Failed to connect to the database: " . mysqli_connect_error());
     } else {
-        echo "Connected to the database successfully";
+        echo "Connected to the database successfully" . "</br>";
     }
-
-    $query = "INSERT INTO Products (product_name, product_description, price, image_url, category_id, category_type) 
+    $sql = "INSERT INTO `Products` (`product_name`, `product_description`, `price`, `image_url`, `category_id`, `category_type`) 
               VALUES ('$productName', '$productDescription', '$price', '$product_image_folder1', '$category_id', '$categoryType')";
-    echo $image;
-    $result = mysqli_query($conn, $query);
-
-    if ($result) {
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_query($conn, $sql)) {
         move_uploaded_file($product_image_tmp_name, $product_image_folder1);
         $message = 'new product added successfully';
-        echo "<script type='text/javascript'>alert('$message'); window.location.href = 'add_products.php';</script>";
-        // header("Location: add_products.php");
+        echo "<script type='text/javascript'>alert('$message'); window.location.href = 'add_products.php';</script>"; 
     } else {
         echo "Error adding product: " . mysqli_error($conn);
     }
+    // if ($result) {
+    //     echo "please";
+    // }
 }

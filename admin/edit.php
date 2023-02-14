@@ -40,32 +40,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-            </ul>
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    <a href="../index.html" class="nav-link">Home</a>
                 </li>
             </ul>
         </nav>
@@ -74,8 +49,8 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <a href="../index.html" class="brand-link">
+                <img src="dist/img/ec.png" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">E-Commerce</span>
             </a>
 
@@ -87,16 +62,14 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                         <img src="dist/img/rsz_avatarmaker.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Abel Zeleke</a>
+                        <p>Abel Zeleke</p>
                     </div>
                 </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-               <li class="nav-item menu-open">
+                        <li class="nav-item menu-open">
                             <a href="#" class="nav-link" data-toggle="dropdown">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -118,7 +91,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                     </a>
                                 </li>
                             </ul>
-                        </li> 
+                        </li>
                         <li class="nav-item">
                             <a href="add_products.php" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
@@ -139,7 +112,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
             <!-- Main content -->
             <section class="content" style="margin-top: 10px;">
                 <div class="container-fluid">
-                    <div class="col-md-8" style="margin: 0 auto;">
+                    <div class="col-md-10" style="margin: 0 auto;">
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h2 class="card-title">Edit Product</h2>
@@ -273,11 +246,14 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                     </div>
                                     <div class="form-group">
                                         <label for="product_image">Image</label>
-                                        <input type="file" name="product_image" class="form-control" id="product_image">
+                                        <div class="custom-file">
+                                            <input type="file" name="product_image" class="custom-file-input" id="product_image">
+                                            <label class="custom-file-label" for="product_image">Choose file</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="update_product">Update Product</button>
-                                <a href="admin.php" class="btn btn-secondary">Discard Changes</a>
+                                <a href="admin1.php" class="btn btn-secondary">Discard Changes</a>
                             </form>
                         </div>
                     </div>
@@ -308,7 +284,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <script src="plugins/raphael/raphael.min.js"></script>
     <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
     <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-    <script src="dist/js/demo.js"></script>
     <script src="dist/js/pages/dashboard2.js"></script>
 </body>
 

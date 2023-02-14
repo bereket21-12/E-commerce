@@ -44,7 +44,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
                     </a>
@@ -63,7 +63,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                             </div>
                         </form>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -212,7 +212,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                                 // Loop through each row in the result
                                                 while ($row = mysqli_fetch_array($result)) {
                                                     echo "<tr>";
-                                                    echo "<td><a href='pages/examples/invoice.html'>" . $row['product_id'] . "</a></td>";
+                                                    echo "<td>".$row['product_id']."</a></td>";
                                                     echo "<td>" . $row['category_type'] . "</td>";
                                                     echo "<td>" . $row['product_name'] . "</td>";
                                                     echo "<td><a href='edit.php?id=" . $row['product_id'] . "' class='nav-link'><i class='fas fa-edit' style='color:#ffc107;'></i></a></td>";

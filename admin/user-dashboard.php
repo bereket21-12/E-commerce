@@ -41,30 +41,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     <a href="../index.html" class="nav-link">Home</a>
                 </li>
             </ul>
-
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-            </ul>
         </nav>
         <!-- /.navbar -->
 
@@ -115,7 +91,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                     </a>
                                 </li>
                             </ul>
-                        </li> 
+                        </li>
                         <li class="nav-item">
                             <a href="add_products.php" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
@@ -223,7 +199,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                                     echo "<td>" . $row['role'] . "</td>";
                                                     echo "<td><a href='edituser.php?id=" . $row['customer_id'] . "' class='nav-link'><i class='fas fa-edit' style='color:#ffc107;'></i></a></td>";
                                                     echo "<td><a href='delete_user.php?id=" . $row['customer_id'] . "' class='nav-link'><i class='fas fa-trash' style='color:#dc3545;'></i></a></td>";
-                                                    echo "</tr>"; 
+                                                    echo "</tr>";
                                                 }
                                                 ?>
                                             </tbody>

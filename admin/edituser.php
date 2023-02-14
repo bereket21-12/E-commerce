@@ -42,15 +42,15 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="index3.html" class="nav-link">Home</a>
                 </li>
-            </ul> 
+            </ul>
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <a href="../index.html" class="brand-link">
+                <img src="dist/img/ec.png" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">E-Commerce</span>
             </a>
 
@@ -62,16 +62,15 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                         <img src="dist/img/rsz_avatarmaker.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Abel Zeleke</a>
+                        <p>Abel Zeleke</p>
                     </div>
                 </div>
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item menu-open">
+                        <li class="nav-item menu-open">
                             <a href="#" class="nav-link" data-toggle="dropdown">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -93,7 +92,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                     </a>
                                 </li>
                             </ul>
-                        </li> 
+                        </li>
                         <li class="nav-item">
                             <a href="add_products.php" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
@@ -120,7 +119,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                 <h2 class="card-title">Edit Customer</h2>
                             </div>
                             <style>
-                                .card{
+                                .card {
                                     padding: 20px;
                                 }
 
@@ -170,27 +169,30 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                             $result = mysqli_query($conn, $query);
                             $user = mysqli_fetch_array($result);
 
-                            if (isset($_POST['submit'])) {
-                                // Update the user information in the database
-                                $first_name = $_POST['first_name'];
-                                $last_name = $_POST['last_name'];
-                                $email = $_POST['email'];
-                                $username = $_POST['username'];
-                                $role = $_POST['role'];
+                            // if (isset($_POST['submit'])) {
+                            //     // Update the user information in the database
+                            //     $first_name = $_POST['first_name'];
+                            //     $last_name = $_POST['last_name'];
+                            //     $email = $_POST['email'];
+                            //     $username = $_POST['username'];
+                            //     $role = $_POST['role'];
 
-                                $query = "UPDATE Customer SET first_name = '$first_name', last_name = '$last_name', email = '$email', username = '$username', `role` = '$role' WHERE customer_id = $id";
-                                $result = mysqli_query($conn, $query);
+                            //     $query = "UPDATE Customer SET first_name = '$first_name', last_name = '$last_name', email = '$email', username = '$username', `role` = '$role' WHERE customer_id = $id";
 
-                                if ($result) {
-                                    // Redirect the user back to the view users page
-                                    header("Location: user-dashboard.php");
-                                } else {
-                                    echo "Error updating the user information: " . mysqli_error($conn);
-                                }
-                            }
+                            //     $result = mysqli_query($conn, $query);
+
+                            //     if ($result) {
+                            //         ob_start();
+                            //         header("Location: user-dashboard.php");
+                            //         ob_end_flush();
+                            //     } else {
+                            //         echo "Error updating the user information: " . mysqli_error($conn);
+                            //     }
+                            // }
                             ?>
 
-                            <form action="" method="post">
+                            <form action="edituser_handller.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $id; ?>">
                                 <div class="form-group">
                                     <label for="first_name">First Name:</label>
                                     <input type="text" name="first_name" value="<?php echo $user['first_name']; ?>" class="form-control">
@@ -214,11 +216,11 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                                                     echo 'selected';
                                                                 } ?>>Admin</option>
                                         <option value="user" <?php if ($user['role'] == 'user') {
-                                                                        echo 'selected';
-                                                                    } ?>>Customer</option>
+                                                                    echo 'selected';
+                                                                } ?>>Customer</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary" name="submit">Update User</button> 
+                                <button type="submit" class="btn btn-primary" name="submit">Update User</button>
                                 <a href="user-dashboard.php" class="btn btn-secondary">Discard Changes</a>
                             </form>
 
@@ -251,7 +253,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <script src="plugins/raphael/raphael.min.js"></script>
     <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
     <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-    <script src="dist/js/demo.js"></script>
     <script src="dist/js/pages/dashboard2.js"></script>
 </body>
 
