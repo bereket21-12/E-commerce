@@ -59,17 +59,15 @@ if (isset($_POST['submit'])) {
     } else {
         echo "Connected to the database successfully" . "</br>";
     }
+    $image_url = '/admin/' . $product_image_folder1;
     $sql = "INSERT INTO `Products` (`product_name`, `product_description`, `price`, `image_url`, `category_id`, `category_type`) 
-              VALUES ('$productName', '$productDescription', '$price', '$product_image_folder1', '$category_id', '$categoryType')";
+              VALUES ('$productName', '$productDescription', '$price', '$image_url', '$category_id', '$categoryType')";
     $result = mysqli_query($conn, $sql);
     if (mysqli_query($conn, $sql)) {
         move_uploaded_file($product_image_tmp_name, $product_image_folder1);
         $message = 'new product added successfully';
-        echo "<script type='text/javascript'>alert('$message'); window.location.href = 'add_products.php';</script>"; 
+        echo "<script type='text/javascript'>alert('$message'); window.location.href = 'add_products.php';</script>";
     } else {
         echo "Error adding product: " . mysqli_error($conn);
     }
-    // if ($result) {
-    //     echo "please";
-    // }
 }

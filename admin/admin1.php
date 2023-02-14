@@ -115,7 +115,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                     </a>
                                 </li>
                             </ul>
-                        </li> 
+                        </li>
                         <li class="nav-item">
                             <a href="add_products.php" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
@@ -188,7 +188,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                         } elseif ($current_page > $num_pages) {
                                             $current_page = $num_pages;
                                         }
-
                                         // Calculate the starting product number for the current page
                                         $start_product = ($current_page - 1) * $products_per_page;
 
@@ -212,7 +211,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                                                 // Loop through each row in the result
                                                 while ($row = mysqli_fetch_array($result)) {
                                                     echo "<tr>";
-                                                    echo "<td>".$row['product_id']."</a></td>";
+                                                    echo "<td>" . $row['product_id'] . "</a></td>";
                                                     echo "<td>" . $row['category_type'] . "</td>";
                                                     echo "<td>" . $row['product_name'] . "</td>";
                                                     echo "<td><a href='edit.php?id=" . $row['product_id'] . "' class='nav-link'><i class='fas fa-edit' style='color:#ffc107;'></i></a></td>";
