@@ -5,12 +5,7 @@ $db = new DBConnection();
 $conn = $db->getConnection();
 
 
-
 $category_id = $_GET['category_id'];
-
-
-
-
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);

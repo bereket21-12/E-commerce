@@ -8,7 +8,7 @@ $db = new DBConnection();
 $conn = $db->getConnection();
 
 $procuct_id = $_GET['product_id'];
-$sql = "SELECT * FROM product WHERE product_id = $procuct_id";
+$sql = "SELECT * FROM Products WHERE product_id = $procuct_id";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 

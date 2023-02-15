@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header('Location: login1.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +26,7 @@
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
+
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
@@ -33,7 +42,7 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="index3.html" class="nav-link">Home</a>
                 </li>
-            </ul> 
+            </ul>
         </nav>
         <!-- /.navbar -->
 
@@ -56,7 +65,6 @@
                         <p>Abel Zeleke</p>
                     </div>
                 </div>
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -104,66 +112,122 @@
             <section class="content-header"></section>
             <!-- Main content -->
             <section class="content" style="margin-top: 10px;">
-                <div class="col-md-10">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h2 class="card-title">Add Products</h2>
-                        </div>
-                        <!-- form start -->
-                        <form action="test.php" method="post" enctype="multipart/form-data">
-                            <div class="card-body">
+                <div class="container-fluid">
+                    <div class="col-md-10" style="margin: 0 auto;">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h2 class="card-title">Edit Customer</h2>
+                            </div>
+                            <style>
+                                .card {
+                                    padding: 20px;
+                                }
+
+                                label {
+                                    font-weight: bold;
+                                    margin-top: 10px;
+                                }
+
+                                .form-group {
+                                    margin-top: 20px;
+                                }
+
+                                #productDescription {
+                                    height: 150px;
+                                }
+
+                                button[type="submit"] {
+                                    width: 150px;
+                                    margin-top: 20px;
+                                    float: right;
+                                }
+
+                                a.btn-secondary {
+                                    width: 150px;
+                                    margin-top: 20px;
+                                    /* margin-bottom: 20px; */
+                                    float: left;
+                                }
+
+                                button[type="submit"] {
+                                    width: 150px;
+                                    /* margin-top: 20px; */
+                                    float: right;
+                                    /* margin-right: 20px; */
+                                }
+                            </style>
+                            <!-- form start -->
+                            <?php
+                            // Connect to the database
+                            $conn = mysqli_connect("localhost", "root", "", "E-commerce");
+
+                            // Get the user ID from the URL
+                            $id = $_GET['id'];
+
+                            // Get the current user information from the database
+                            $query = "SELECT * FROM Customer WHERE customer_id = $id";
+                            $result = mysqli_query($conn, $query);
+                            $user = mysqli_fetch_array($result);
+
+                            // if (isset($_POST['submit'])) {
+                            //     // Update the user information in the database
+                            //     $first_name = $_POST['first_name'];
+                            //     $last_name = $_POST['last_name'];
+                            //     $email = $_POST['email'];
+                            //     $username = $_POST['username'];
+                            //     $role = $_POST['role'];
+
+                            //     $query = "UPDATE Customer SET first_name = '$first_name', last_name = '$last_name', email = '$email', username = '$username', `role` = '$role' WHERE customer_id = $id";
+
+                            //     $result = mysqli_query($conn, $query);
+
+                            //     if ($result) {
+                            //         ob_start();
+                            //         header("Location: user-dashboard.php");
+                            //         ob_end_flush();
+                            //     } else {
+                            //         echo "Error updating the user information: " . mysqli_error($conn);
+                            //     }
+                            // }
+                            ?>
+
+                            <form action="edituser_handller.php" method="post">
+                                <input type="hidden" name="id" value="<?php echo $id; ?>">
                                 <div class="form-group">
-                                    <label for="productName">Product Name</label>
-                                    <input type="text" name="productName" class="form-control" id="productName" placeholder="Enter Product Name">
+                                    <label for="first_name">First Name:</label>
+                                    <input type="text" name="first_name" value="<?php echo $user['first_name']; ?>" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="productDescription">Product Description</label>
-                                    <textarea name="productDescription" class="form-control" id="productDescription" placeholder="Enter Product Description"></textarea>
+                                    <label for="last_name">Last Name:</label>
+                                    <input type="text" name="last_name" value="<?php echo $user['last_name']; ?>" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="price">Price</label>
-                                    <input type="text" name="price" class="form-control" id="price" placeholder="Enter Price">
+                                    <label for="email">Email:</label>
+                                    <input type="email" name="email" value="<?php echo $user['email']; ?>" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="categoryType">Category Type</label>
-                                    <select class="form-control" name="categoryType">
-                                        <option value="">Select category type</option>
-                                        <optgroup label="Man">
-                                            <option value="Full_Suits">Full Suits</option>
-                                            <option value="Jeans For Men">Jeans For Men</option>
-                                            <option value="Shirt">Shirt</option>
-                                            <option value="Sweatshirts_Hoodies">Sweatshirts & Hoodies</option>
-                                            <option value="T_Shirt">T-Shirt</option>
-                                        </optgroup>
-                                        <optgroup label="Woman">
-                                            <option value="Dresses">Dresses</option>
-                                            <option value="Jackets_Coats">Jackets & Coats</option>
-                                            <option value="Jeans For Women">Jeans For Women</option>
-                                            <option value="Skirts">Skirts</option>
-                                            <option value="Sweaters">Sweaters</option>
-                                            <option value="Top">Top</option>
-                                        </optgroup>
+                                    <label for="username">Username:</label>
+                                    <input type="text" name="username" value="<?php echo $user['username']; ?>" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="role">Role:</label>
+                                    <select name="role" class="form-control">
+                                        <option value="admin" <?php if ($user['role'] == 'admin') {
+                                                                    echo 'selected';
+                                                                } ?>>Admin</option>
+                                        <option value="user" <?php if ($user['role'] == 'user') {
+                                                                    echo 'selected';
+                                                                } ?>>Customer</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="product_image">Image</label>
-                                    <div class="custom-file">
-                                        <input type="file" name="product_image" class="custom-file-input" id="product_image" required>
-                                        <label class="custom-file-label" for="product_image">Choose file</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <button type="submit" name="submit" class="btn btn-primary" style="float:left;">Submit</button>
-                                <button type="cancel" name="cancel" class="btn btn-danger" style="float:right;">Cancel</button>
-                            </div>
-                        </form>
+                                <button type="submit" class="btn btn-primary" name="submit">Update User</button>
+                                <a href="user-dashboard.php" class="btn btn-secondary">Discard Changes</a>
+                            </form>
+
+                        </div>
                     </div>
-                </div>
             </section>
-            <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">

@@ -9,13 +9,13 @@ if (isset($_GET["search"])) {
 
   $search_term = $_GET["search"];
 
-  $sql = "SELECT * FROM product WHERE product_name LIKE '%$search_term%'";
+  $sql = "SELECT * FROM Products WHERE product_name LIKE '%$search_term%'";
 
 
 } 
 else {
 
-  $sql = "SELECT * FROM product";
+  $sql = "SELECT * FROM Products";
 }
 
 $result = $conn->query($sql);
@@ -29,7 +29,9 @@ if (mysqli_num_rows($result) > 0) {
         "product_name" => $row["product_name"],
         "product_description" => $row["product_description"],
         "product_img_path" => $row["image_url"],
+        "category_type" => $row["category_type"],
         "category_id" => $row["category_id"]
+
 
       );
     }

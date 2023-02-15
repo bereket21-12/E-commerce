@@ -1,4 +1,9 @@
 <?php
+// echo "<script>
+// // Remove the last entry from the browsing history
+// history.go(-1);
+// </script>";
+
 session_start();
 
 
@@ -17,20 +22,16 @@ $result = mysqli_query($conn, $sql);
 
 
     while($row = mysqli_fetch_assoc($result)) {
-        $_SESSION['favorite'] []= array(
+        $_SESSION['item'] []= array(
         "product_name" => $row["product_name"],
-        "product_id" => $row["product_id"],
         "price" => $row["price"],
-        "product_img_path" => $row["image_url"]
-
+        "product_img_path" => $row["image_url"],
+        "product_id" => $row["product_id"]
 
       );
     }
-
-
-  // $_SESSION['fcounter'] ++;
-  
-
-
+    
+    
+include("./addpopup.php");
 
 ?>

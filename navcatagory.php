@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
-$sql = "SELECT * FROM product where category_id='$category_id '";
+$sql = "SELECT * FROM Products where category_id='$category_id '";
 $result = mysqli_query($conn, $sql); 
 
 if ($result->num_rows > 0) {

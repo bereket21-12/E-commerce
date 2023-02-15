@@ -9,7 +9,7 @@ $procuct_id = $_GET['product_id'];
 
 include("./Common/header.php");
 include("./Common/navbar.php");
-include("./carthandller.php");
+// include("./cartinfo.php");
 // include("./fetchpro.php")
 
 
@@ -73,7 +73,7 @@ include("./carthandller.php");
                             </td>
                             <td class="align-middle">$150</td>
                             <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
-                            <td><a  name ="add-to-cart" type="submit" class="btn btn-primary px-3" href="carthandller.php?product_id=<?php  echo $product["product_id"]; ?>"><i class="fa fa-shopping-cart mr-1" ></i> Add To
+                            <td><a  name ="add-to-cart" type="submit" class="btn btn-primary px-3" href="cartinfo.php?product_id=<?php  echo $product["product_id"]; ?>"><i class="fa fa-shopping-cart mr-1" ></i> Add To
                             Cart</a></td>
                         </tr>
 

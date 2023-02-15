@@ -25,6 +25,9 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 
+    <!-- popup message -->
+    <link rel="stylesheet" href="path/to/sweetalert2.css">
+
 
   
 </head>

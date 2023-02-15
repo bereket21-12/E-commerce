@@ -19,7 +19,7 @@ include("fetchpro.php");
                     <div class="product-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src=<?php echo $product["product_img_path"];?> alt="">
                         <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href="carthandller.php?product_id=<?php echo $product["product_id"]; ?>"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="cartinfo.php?product_id=<?php echo $product["product_id"]; ?>"><i class="fa fa-shopping-cart"></i></a>
                             <a class="btn btn-outline-dark btn-square" href="favoritecontroller.php?product_id=<?php echo $product["product_id"]; ?>"><i class="far fa-heart"></i></a>
                             
                         </div>

@@ -4,7 +4,6 @@ include("./Common/header.php");
 include("./Common/navbar.php");
 
 
-
 ?>
     <div class="container-fluid pt-5 pb-3">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Products</span></h2>
@@ -20,7 +19,7 @@ include("./Common/navbar.php");
                     <div class="product-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src=<?php echo $product["product_img_path"];?> alt="">
                         <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href="carthandller.php?product_id=<?php echo $product["product_id"]; ?>"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="cartinfo.php?product_id=<?php echo $product["product_id"]; ?>"><i class="fa fa-shopping-cart"></i></a>
                             <a class="btn btn-outline-dark btn-square" href="favoritecontroller.php?product_id=<?php echo $product["product_id"]; ?>"><i class="far fa-heart"></i></a>
                             
                         </div>

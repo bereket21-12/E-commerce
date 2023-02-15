@@ -1,4 +1,6 @@
 <?php
+
+
 session_start();
 $logged_in = $_SESSION["is_loggedin"];
 
@@ -42,30 +44,6 @@ if (!$logged_in) {
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="../index.html" class="nav-link">Home</a>
                 </li>
-            </ul>
-
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <!-- <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li> -->
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -141,7 +119,7 @@ if (!$logged_in) {
                     <!-- Main row -->
                     <div class="row">
                         <!-- Left col -->
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <!-- Table -->
                             <div class="card">
                                 <div class="card-body p-0">
@@ -154,7 +132,7 @@ if (!$logged_in) {
                                         $result1 = mysqli_query($conn, $sql);
 
                                         // Set the number of products per page
-                                        $products_per_page = 15;
+                                        $customers_per_page = 15;
 
                                         // Get the total number of products
                                         $total_products_query = "SELECT COUNT(product_id) AS total_products FROM Products";
@@ -180,7 +158,7 @@ if (!$logged_in) {
                                         $total_orders = $total_orders_row['total_orders'];
 
                                         // Calculate the number of pages
-                                        $num_pages = ceil($total_products / $products_per_page);
+                                        $num_pages = ceil($total_products / $customers_per_page);
 
                                         $current_page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
@@ -190,20 +168,24 @@ if (!$logged_in) {
                                         } elseif ($current_page > $num_pages) {
                                             $current_page = $num_pages;
                                         }
+
                                         // Calculate the starting product number for the current page
-                                        $start_product = ($current_page - 1) * $products_per_page;
+                                        $start_customer = ($current_page - 1) * $customers_per_page;
 
                                         // Query to fetch the products for the current page
-                                        $query = "SELECT product_id, category_type, product_name FROM Products LIMIT $start_product, $products_per_page";
+                                        $query = "SELECT customer_id, first_name, last_name, email, username, `role` FROM Customer LIMIT $start_customer, $customers_per_page";
                                         $result = mysqli_query($conn, $query);
 
                                         ?>
                                         <table class="table m-0">
                                             <thead>
                                                 <tr>
-                                                    <th>Product ID</th>
-                                                    <th>Product Type</th>
-                                                    <th>Product Name</th>
+                                                    <th>Customer ID</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>email</th>
+                                                    <th>Username</th>
+                                                    <th>Role</th>
                                                     <th>Edit</th>
                                                     <th>Delete</th>
                                                 </tr>
@@ -213,13 +195,15 @@ if (!$logged_in) {
                                                 // Loop through each row in the result
                                                 while ($row = mysqli_fetch_array($result)) {
                                                     echo "<tr>";
-                                                    echo "<td>" . $row['product_id'] . "</a></td>";
-                                                    echo "<td>" . $row['category_type'] . "</td>";
-                                                    echo "<td>" . $row['product_name'] . "</td>";
-                                                    echo "<td><a href='edit.php?id=" . $row['product_id'] . "' class='nav-link'><i class='fas fa-edit' style='color:#ffc107;'></i></a></td>";
-                                                    echo "<td><a href='delete_product.php?id=" . $row['product_id'] . "' class='nav-link'><i class='fas fa-trash' style='color:#dc3545;'></i></a></td>";
+                                                    echo "<td>" . $row['customer_id'] . "</td>";
+                                                    echo "<td>" . $row['first_name'] . "</td>";
+                                                    echo "<td>" . $row['last_name'] . "</td>";
+                                                    echo "<td>" . $row['email'] . "</td>";
+                                                    echo "<td>" . $row['username'] . "</td>";
+                                                    echo "<td>" . $row['role'] . "</td>";
+                                                    echo "<td><a href='edituser.php?id=" . $row['customer_id'] . "' class='nav-link'><i class='fas fa-edit' style='color:#ffc107;'></i></a></td>";
+                                                    echo "<td><a href='delete_user.php?id=" . $row['customer_id'] . "' class='nav-link'><i class='fas fa-trash' style='color:#dc3545;'></i></a></td>";
                                                     echo "</tr>";
-                                                    $cnt++;
                                                 }
                                                 ?>
                                             </tbody>
@@ -268,7 +252,7 @@ if (!$logged_in) {
                             </div>
                             <!-- /.card -->
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="info-box mb-3 bg-success">
                                 <span class="info-box-icon"><i class="fas fa-users"></i></span>
                                 <div class="info-box-content">
@@ -320,11 +304,6 @@ if (!$logged_in) {
     <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
     <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- ChartJS -->
-    <!-- <script src="plugins/chart.js/Chart.min.js"></script> -->
-
-    <!-- AdminLTE for demo purposes -->
-    <!-- <script src="dist/js/demo.js"></script> -->
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dist/js/pages/dashboard2.js"></script>
 </body>
 
