@@ -6,6 +6,7 @@ if (isset($_POST['submit'])) {
     $productName = mysqli_real_escape_string($conn, $_POST['productName']);
     $productDescription = mysqli_real_escape_string($conn, $_POST['productDescription']);
     $price = mysqli_real_escape_string($conn, $_POST['price']);
+    $quantity = $_POST['quantity'];
     $categoryType = mysqli_real_escape_string($conn, $_POST['categoryType']);
     $product_image = mysqli_real_escape_string($conn, $_FILES['product_image']['name']);
     $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
@@ -82,8 +83,7 @@ if (isset($_POST['submit'])) {
     }
     $start = strpos($product_image_folder1, 'img');
     $image_url = substr($product_image_folder1, $start);
-    $sql = "INSERT INTO `Products` (`product_name`, `product_description`, `price`, `image_url`, `category_id`, `category_type`) 
-              VALUES ('$productName', '$productDescription', '$price', '$image_url', '$category_id', '$categoryType')";
+    $sql = "INSERT INTO Products (product_name, product_description, category_id, price, image_url, category_type, quantity) VALUES ('$productName', '$productDescription', '$category_id', '$price', '$product_image_folder1', '$categoryType', '$quantity')";
     $result = mysqli_query($conn, $sql);
     if (mysqli_query($conn, $sql)) {
         move_uploaded_file($product_image_tmp_name, $product_image_folder1);

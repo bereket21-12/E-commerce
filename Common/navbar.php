@@ -89,12 +89,7 @@ $cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
                                     <a href="checkout.php" class="dropdown-item">Checkout</a>
                                 </div>
                             </div> -->
-                            <a href="contacts.php" class="nav-item nav-link">Contact</a>
-                            <div class="col-lg-1 d-none d-lg-block">
-                                <div class="d-inline-flex align-items-center h-100">
-                                    <a class="mr-3 text-white" href="">About</a>
-                                </div>
-                            </div>
+                            <a href="contacts.php" class="nav-item nav-link">Contact</a> 
                             <div class="col-lg-4 col-1 text-left mt-3" style="max-width: fit-content;">
                                 <form  action="./searchcontroller.php">
                                     <div class="input-group">

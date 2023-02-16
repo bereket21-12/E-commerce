@@ -194,9 +194,9 @@ if (!$logged_in) {
                                         $start_product = ($current_page - 1) * $products_per_page;
 
                                         // Query to fetch the products for the current page
-                                        $query = "SELECT product_id, category_type, product_name FROM Products LIMIT $start_product, $products_per_page";
+                                        $query = "SELECT product_id, category_type, product_name, quantity FROM Products LIMIT $start_product, $products_per_page";
                                         $result = mysqli_query($conn, $query);
-
+                                        
                                         ?>
                                         <table class="table m-0">
                                             <thead>
@@ -204,6 +204,7 @@ if (!$logged_in) {
                                                     <th>Product ID</th>
                                                     <th>Product Type</th>
                                                     <th>Product Name</th>
+                                                    <th>Quantity</th>
                                                     <th>Edit</th>
                                                     <th>Delete</th>
                                                 </tr>
@@ -216,6 +217,7 @@ if (!$logged_in) {
                                                     echo "<td>" . $row['product_id'] . "</a></td>";
                                                     echo "<td>" . $row['category_type'] . "</td>";
                                                     echo "<td>" . $row['product_name'] . "</td>";
+                                                    echo "<td>" . $row['quantity'] . "</td>";
                                                     echo "<td><a href='edit.php?id=" . $row['product_id'] . "' class='nav-link'><i class='fas fa-edit' style='color:#ffc107;'></i></a></td>";
                                                     echo "<td><a href='delete_product.php?id=" . $row['product_id'] . "' class='nav-link'><i class='fas fa-trash' style='color:#dc3545;'></i></a></td>";
                                                     echo "</tr>";
