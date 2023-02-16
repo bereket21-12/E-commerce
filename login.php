@@ -6,13 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/login.css">
     <title>Document</title>
+
+<style>
+input:invalid~ span::before{
+  background-color : red;
+}
+input:valid~ span::before{
+  border-color : green;
+}
+</style>
+
 </head>
 <body>
      <div class = "center">
         <h1>Login </h1>
         <form method="post" action = "logincontroller.php">
      <div class="txt_field">
-        <input type=" text" name = "email" required>
+        <input type="email" name = "email" required>
         <span></span>
         <label> Username</label>
      </div>

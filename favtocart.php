@@ -7,7 +7,6 @@
 session_start();
 
 
-
 $product_id = $_GET['product_id'];
 include "./database/Dbcontroller.php";
 
@@ -32,7 +31,21 @@ $result = mysqli_query($conn, $sql);
       );
     }
     
+
+
+    // foreach ($_SESSION['favorite'] as $outerKey => $innerArray) {
+    //     // Loop through each inner array element
+    //     foreach ($innerArray as $innerKey => $value) {
+    //         // Check if the value is "value2"
+    //         if ($value === $product_id) {
+    //             // Remove the entire inner array
+    //             unset($_SESSION['favorite'][$product_id]);
+    //         }
+    //     }
+    //   }
+    include("./deletefav.php");
     
 include("./addpopup.php");
+
 
 ?>

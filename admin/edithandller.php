@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-$conn = mysqli_connect("localhost", "root", "", "E-commerce");
+$conn = mysqli_connect("localhost", "root", "", "E-commerce3");
 
 $product_id = $_POST['product_id'];
 if (!isset($product_id)) {
@@ -27,39 +27,57 @@ if (isset($_POST['update_product'])) {
     switch ($categoryType) {
         case "Full_Suits":
             $category_id = 1;
+            $product_image_folder1 = '../img/Men/Full_Suits/' . $product_image;
             break;
         case "Jeans For Men":
             $category_id = 2;
+            $product_image_folder1 = '../img/Men/Jeans/' . $product_image;
+
             break;
         case "Shirt":
             $category_id = 3;
+            $product_image_folder1 = '../img/Men/Shirt/' . $product_image;
+
             break;
         case "Sweatshirts_Hoodies":
             $category_id = 4;
+            $product_image_folder1 = '../img/Men/Sweatshirts_Hoodies/' . $product_image;
+
             break;
         case "T_Shirt":
             $category_id = 5;
+            $product_image_folder1 = '../img/Men/T_Shirt/' . $product_image;
+
             break;
         case "Dresses":
             $category_id = 6;
+            $product_image_folder1 = '../img/Women/Dresses/' . $product_image;
+
             break;
         case "Jackets_Coats":
             $category_id = 7;
+            $product_image_folder1 = '../img/Women/Jackets_Coats/' . $product_image;
+
             break;
         case "Jeans For Women":
             $category_id = 8;
+            $product_image_folder1 = '../img/Women/Jeans/' . $product_image;
+
             break;
         case "Skirts":
             $category_id = 9;
+            $product_image_folder1 = '../img/Women/Skirts/' . $product_image;
+
             break;
         case "Sweaters":
             $category_id = 10;
+            $product_image_folder1 = '../img/Women/Sweaters/' . $product_image;
+
             break;
         case "Top":
             $category_id = 11;
-            break;
-        default:
-            $category_id = 0;
+            $product_image_folder1 = '../img/Women/Top/' . $product_image;
+
             break;
     }
 

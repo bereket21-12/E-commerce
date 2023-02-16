@@ -159,7 +159,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                             <!-- form start -->
                             <?php
                             // Connect to the database
-                            $conn = mysqli_connect("localhost", "root", "", "E-commerce");
+                            $conn = mysqli_connect("localhost", "root", "", "E-commerce3");
 
                             // Get the user ID from the URL
                             $id = $_GET['id'];

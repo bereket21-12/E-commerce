@@ -28,7 +28,7 @@ include("./common/footer.php");
                                                     <tbody>
                                                         <?php
                                                         // Connect to the database
-                                                        $conn = mysqli_connect("localhost", "root", "", "E-commerce");
+                                                        $conn = mysqli_connect("localhost", "root", "", "E-commerce3");
 
                                                         // Query to fetch data from the Ecommerce Products table
                                                         $query = "SELECT product_id, category_type, product_name FROM Products";

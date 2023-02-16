@@ -45,28 +45,7 @@ $cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
                             </div>
                         </div>
 
-                        <!-- <div class="nav-item dropdown dropright">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Baby's Dresses <i class="fa fa-angle-right float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                <a href="" class="dropdown-item">Jeans</a>
-                                <a href="" class="dropdown-item">Shirts</a>
-                                <a href="" class="dropdown-item">Swimwear</a>
-                                <a href="" class="dropdown-item">Sportswear</a>
-                                <a href="" class="dropdown-item">BJumpsuits</a>
-                                <a href="" class="dropdown-item">Blazers</a>
-
-                            </div> -->
-                        <!-- </div> -->
-                        <!-- <a href="" class="nav-item nav-link">Shirts</a>
-                        <a href="" class="nav-item nav-link">Jeans</a>
-                        <a href="" class="nav-item nav-link">Swimwear</a>
-                        <a href="" class="nav-item nav-link">Sleepwear</a>
-                        <a href="" class="nav-item nav-link">Sportswear</a>
-                        <a href="" class="nav-item nav-link">Jumpsuits</a>
-                        <a href="" class="nav-item nav-link">Blazers</a>
-                        <a href="" class="nav-item nav-link">Jackets</a>
-                        <a href="" class="nav-item nav-link">Shoes</a>
-                    </div> -->
+                       
                 </nav>
             </div>
             <div class="col-lg">
@@ -81,21 +60,11 @@ $cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="index.php" class="nav-item nav-link">Home</a>
-                            <a href="shop.php" class="nav-item nav-link">Shop</a>
-                            <!-- <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
-                                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.php" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.php" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div> -->
+                          
+                        
                             <a href="contacts.php" class="nav-item nav-link">Contact</a>
-                            <div class="col-lg-1 d-none d-lg-block">
-                                <div class="d-inline-flex align-items-center h-100">
-                                    <a class="mr-3 text-white" href="">About</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-1 text-left mt-3" style="max-width: fit-content;">
+                 
+                            <div class="col-lg-4 col-5 text-left mt-3" style="width: 600px;">
                                 <form  action="./searchcontroller.php">
                                     <div class="input-group">
                                         <input name ="search" type="text" class="form-control" placeholder="Search for products">

@@ -122,7 +122,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="price">Price</label>
-                                    <input type="text" name="price" class="form-control" id="price" placeholder="Enter Price">
+                                    <input type="number" name="price" class="form-control" id="price" placeholder="Enter Price">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity">Quantity</label>
+                                    <input type="number" name="quantity" class="form-control" id="price" placeholder="Enter Quantity">
                                 </div>
                                 <div class="form-group">
                                     <label for="categoryType">Category Type</label>

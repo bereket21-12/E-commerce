@@ -160,7 +160,7 @@ if (!$logged_in) {
                             </style>
 
                             <?php
-                            $conn = mysqli_connect("localhost", "root", "", "E-commerce");
+                            $conn = mysqli_connect("localhost", "root", "", "E-commerce3");
                             $product_id = $_GET['id'];
                             if (isset($_GET['id'])) {
 

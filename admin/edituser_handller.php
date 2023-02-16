@@ -1,7 +1,7 @@
 <?php
 
 // Connect to the database
-$conn = mysqli_connect("localhost", "root", "", "E-commerce");
+$conn = mysqli_connect("localhost", "root", "", "E-commerce3");
 
 // Check if the form was submitted
 if (isset($_POST['submit'])) {

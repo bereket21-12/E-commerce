@@ -126,7 +126,7 @@ if (!$logged_in) {
                                     <div class="table-responsive">
                                         <?php
                                         // Connect to the database
-                                        $conn = mysqli_connect("localhost", "root", "", "E-commerce");
+                                        $conn = mysqli_connect("localhost", "root", "", "E-commerce3");
 
                                         $sql = "SELECT COUNT(*) FROM Customer";
                                         $result1 = mysqli_query($conn, $sql);

@@ -60,7 +60,8 @@ $_SESSION['username'] = $row['username'];
 }else {
     // email and password are incorrect
     // do something, for example show an error message
-    echo "Email or password is incorrect";
+    header("Location: login.php");
+    
  }
 
 

@@ -29,6 +29,18 @@ foreach($_SESSION['item'] as $item){
            echo "Error: " . $stmt->error;
        }
 
+       $decrease_by = 1 ;
+
+    //    UPDATE items SET quantity = quantity - 1 WHERE id = 123;
+    $sql2 = "UPDATE Products SET quantity = quantity - $decrease_by WHERE product_id = {$item['product_id']}";
+    if ($conn->query($sql2) === TRUE) {
+      echo "Item quantity updated successfully.";
+    } else {
+      echo "Error updating item quantity: " . $conn->error;
+    }
+    
+
+
 }
 
 mysqli_close($conn);

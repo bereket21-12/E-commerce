@@ -11,13 +11,8 @@ ini_set('display_errors', 1);
     $db = new DBConnection();
     $conn = $db->getConnection();
     
-    
-      
-    
-
         foreach($_SESSION['item'] as $item){
 
-            echo $item['product_id'];
         
             $sql = "INSERT INTO Orders (customer_id,product_id,price) 
             VALUES (?,?,?)";        
@@ -25,24 +20,16 @@ ini_set('display_errors', 1);
                $stmt->bind_param("sss", $_SESSION['customer_id'], $item['product_id'],$item['price']);
            
                if($stmt->execute()){
-                   echo "Information submitted successfully";
+                array_splice($_SESSION['item'], 0);
+
+                include("./orderpopup.php");
                } else{
                    echo "Error: " . $stmt->error;
                }
         
         }
         
-
-
-
-
-
-        
-
         mysqli_close($conn);
-
-
-
 
 
 ?>

@@ -1,5 +1,5 @@
 <?php 
-$conn = mysqli_connect("localhost", "root", "", "E-commerce");
+$conn = mysqli_connect("localhost", "root", "", "E-commerce3");
 
 $id = $_GET['id'];
 

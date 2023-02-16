@@ -5,7 +5,7 @@ class DBConnection {
     private $servername = "localhost";
     private $username = "root";
     private $password = "";
-    private $dbname = "E-commerce";
+    private $dbname = "E-commerce3";
     private $conn;
 
     public function __construct() {
