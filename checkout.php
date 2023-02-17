@@ -148,7 +148,7 @@ include("./Common/navbar.php");
                     <div class="border-bottom">
                         <div class="d-flex justify-content-between">
                             <p><?php echo $product['product_name']; ?></p>
-                            <p>$<?php echo $total +=$product['price']; $product['price']; ?></p>
+                            <p>$<?php  $product['price']; echo $total +=$product['price']; ?></p>
                         </div>
                     </div>
     <?php endforeach; ?>
@@ -156,7 +156,7 @@ include("./Common/navbar.php");
                     <div class="border-bottom pt-3 pb-2">
                         <div class="d-flex justify-content-between mb-3">
                             <h6>Subtotal</h6>
-                            <h6>$ <?php echo $total; ?></h6>
+                            <h6>$<?php echo $total; ?></h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
@@ -166,7 +166,7 @@ include("./Common/navbar.php");
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Total</h5>
-                            <h5><?php if(empty($_SESSION['item'])){ echo "$0" ;} else{ echo  $total +10 ;}?></h5>
+                            <h5><?php if(empty($_SESSION['item'])){ echo "$0" ;} else{ echo  "$".$total +10 ;}?></h5>
                         </div>
                     </div>
                 </div>

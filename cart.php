@@ -168,11 +168,11 @@ include("./Common/navbar.php");
                 <div class="bg-light p-30 mb-5">
                     <div class="border-bottom pb-2">
                         <h6 class="mb-3">Products</h6>
-                        <?php foreach( $array as $product):  ?>
+        <?php foreach( $array as $product):  ?>
                     <div class="border-bottom">
                         <div class="d-flex justify-content-between">
                             <p><?php echo $product['product_name']; ?></p>
-                            <p>$<?php echo $total +=$product['price']; $product['price']; ?></p>
+                            <p>$<?php echo  $product['price'];  $total +=$product['price']; ?></p>
                         </div>
                     </div>
     <?php endforeach; ?>
@@ -190,7 +190,7 @@ include("./Common/navbar.php");
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Total</h5>
-                            <h5><?php if(empty($_SESSION['item'])){ echo "$0" ;} else{ echo  $total +10 ;}?></h5>
+                            <h5><?php if(empty($_SESSION['item'])){ echo "$0" ;} else{ echo  "$".$total + 10 ;}?></h5>
                         </div>
                     </div>
                 </div>
