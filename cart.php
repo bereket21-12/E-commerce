@@ -1,5 +1,13 @@
 <?php
-session_start();
+    session_start();
+
+$logged_in = $_SESSION["is_loggedin"];
+
+if (!$logged_in) {
+  
+  header('Location: signup.php');
+
+}
 $array = array_unique($_SESSION['item'],SORT_REGULAR);
 
 // error_reporting(E_ALL);

@@ -1,7 +1,28 @@
 <?php
+
+ 
+$link = null ;
 session_start();
-$cart_array = array_unique($_SESSION['item'],SORT_REGULAR);
-$cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
+
+$logged_in = $_SESSION["is_loggedin"];
+
+if (!$logged_in) {
+  
+    $cart_array = array();
+    $cfavorite_array =array();
+    $link = "./signup.php";
+    $txt = "Signup";
+
+
+}
+else {
+    $cart_array = array_unique($_SESSION['item'],SORT_REGULAR);
+    $cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
+    $logged_in = $_SESSION["is_loggedin"];
+    $link = "./logout.php";
+    $txt = "Logout";
+
+}
 ?>
 <body>
 
@@ -77,7 +98,7 @@ $cfavorite_array = array_unique($_SESSION['favorite'],SORT_REGULAR);
                                 </form>
                             </div>
                         </div>
-                        <a href="./logout.php" class="text-white nav-link">Logout</a>
+                        <a href="<?php echo $link; ?>" class="text-white nav-link"><?php echo $txt; ?></a>
 
 
                         <a href="favorite.php" class="btn px-0 ">

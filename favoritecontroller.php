@@ -1,5 +1,11 @@
 <?php
 session_start();
+$logged_in = $_SESSION["is_loggedin"];
+
+if (!$logged_in) {
+  
+  header('Location: signup.php');
+}
 
 
 $product_id = $_GET['product_id'];
