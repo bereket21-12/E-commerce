@@ -31,7 +31,9 @@ if (mysqli_num_rows($result) > 0) {
         "product_img_path" => $row["image_url"],
         "category_type" => $row["category_type"],
         "category_id" => $row["category_id"],
-        "price" => $row["price"]
+        "price" => $row["price"],
+        "quantity" => $row["quantity"]
+
 
 
 

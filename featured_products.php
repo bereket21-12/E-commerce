@@ -21,6 +21,7 @@ $current_page_products = array_slice($products, $starting_index, $products_per_p
     <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured Products</span></h2>
     <div class="row px-xl-5">
         <?php foreach ($current_page_products as $product) : ?>
+            <?php if($product['quantity'] >= 1) : ?>
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4">
                     <div class="product-img position-relative overflow-hidden">
@@ -42,6 +43,8 @@ $current_page_products = array_slice($products, $starting_index, $products_per_p
                     </div>
                 </div>
             </div>
+        <?php endif; ?>
+
         <?php endforeach; ?>
     </div>
 </div>

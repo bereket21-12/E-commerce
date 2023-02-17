@@ -12,8 +12,8 @@ $category_id = $_GET['category_id'];
 
 
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 
 $sql = "SELECT * FROM Products where category_id='$category_id '";
