@@ -39,7 +39,7 @@ include("./Common/navbar.php");
                             <th>Products</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Total</th>
+                            <!-- <th>Total</th> -->
                             <th>Remove</th>
                         </tr>
                     </thead>
@@ -69,7 +69,7 @@ include("./Common/navbar.php");
                                     </div>
                                 </div>
                             </td>
-                            <td class="align-middle">$150</td>
+                            <!-- <td class="align-middle">$150</td> -->
                             <td class="align-middle"><a href ="deletecart.php?product_id=<?php echo $product["product_id"]; ?>" class="delete-item-button  btn btn-sm btn-danger"><i class="fa fa-times"></i></a></td>
                         </tr>
 

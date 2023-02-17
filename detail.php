@@ -64,16 +64,7 @@ $row = mysqli_fetch_assoc($result);
             <div class="col-lg-7 h-auto mb-30">
                 <div class="h-100 bg-light p-30">
                     <h3 name="product_name"><?php echo $row["product_name"]; ?></h3>
-                    <div class="d-flex mb-3">
-                        <div class="text-primary mr-2">
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star"></small>
-                            <small class="fas fa-star-half-alt"></small>
-                            <small class="far fa-star"></small>
-                        </div>
-                        <small class="pt-1">(99 Reviews)</small>
-                    </div>
+       
                     <h3 name="product_price" class="font-weight-semi-bold mb-4">$<?php echo $row['price']; ?></h3>
                     <p class="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit
                         clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea
@@ -142,7 +133,7 @@ $row = mysqli_fetch_assoc($result);
                                 </button>
                             </div>
                         </div>
-                        <a  name ="add-to-cart" type="submit" class="btn btn-primary px-3" href="carthandller.php?product_id=<?php echo $procuct_id; ?>"><i class="fa fa-shopping-cart mr-1" ></i> Add To
+                        <a  name ="add-to-cart" type="submit" class="btn btn-primary px-3" href="cartinfo.php?product_id=<?php echo $procuct_id; ?>"><i class="fa fa-shopping-cart mr-1" ></i> Add To
                             Cart</a>
                     </div>
 </form>
@@ -284,10 +275,7 @@ $row = mysqli_fetch_assoc($result);
     ?>
 
 
-      <?php
-    include './database/Dbcontroller.php';
-    $db = new DBConnection();
-    $conn = $db->getConnection();
+  
 
     // use $conn for database operations
     ?>

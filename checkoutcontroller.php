@@ -26,6 +26,16 @@ ini_set('display_errors', 1);
                } else{
                    echo "Error: " . $stmt->error;
                }
+
+               $decrease_by = 1;
+
+               $sql2 = "UPDATE Products SET quantity = quantity - $decrease_by WHERE product_id = {$item['product_id']}";
+               echo $sql2;
+               if ($conn->query($sql2) === TRUE) {
+                   echo "Item quantity updated successfully.";
+               } else {
+                   echo "Error updating item quantity: " . $conn->error;
+               }
         
         }
         
