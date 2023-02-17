@@ -37,19 +37,7 @@ $current_page_products = array_slice($products, $starting_index, $products_per_p
                         <div class="d-flex align-items-center justify-content-center mt-2">
                             <h5>$<?php echo $product['price'] ?></h5>
                         </div>
-<<<<<<< HEAD
-  
-                    </div>
-                </div>
-            </div>
-            
-    <?php endforeach; ?>
-        </div>
-        </div>
- 
- 
- 
-=======
+
 
                     </div>
                 </div>
@@ -68,4 +56,3 @@ $current_page_products = array_slice($products, $starting_index, $products_per_p
         <?php endfor; ?>
     </ul>
 </nav>
->>>>>>> fdb202b (conflicts)
