@@ -30,6 +30,32 @@ $result = mysqli_query($conn, $sql);
 
   // $_SESSION['fcounter'] ++;
   
+  include("popup.php");
+
+  echo '<script>
+
+  const paragraph = document.getElementById("msg");
+  paragraph.textContent = "Item Added to the  Favorite successfuly";
+  
+
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the close button
+  var close = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks on the close button, hide the modal
+  close.onclick = function() {
+    modal.style.display = "none";
+    history.go(-1);
+
+  }
+  
+  // When the page is loaded, show the modal
+  window.onload = function() {
+    modal.style.display = "block";
+  }
+  </script>';
 
 
 

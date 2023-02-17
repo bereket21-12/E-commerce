@@ -18,26 +18,26 @@ input:valid~ span::before{
 
 </head>
 <body>
-     <div class = "center">
-        <h1>Login </h1>
-        <form method="post" action = "logincontroller.php">
-     <div class="txt_field">
-        <input type="email" name = "email" required>
+  <div class="center">
+    <h1>Login</h1>
+    <form method="post" action="logincontroller.php">
+      <div class="txt_field">
+        <input type="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
         <span></span>
-        <label> Username</label>
-     </div>
-     <div class="txt_field">
-        <input type="password" name ="password" required>
+        <label>Email</label>
+      </div>
+      <div class="txt_field">
+        <input type="password" name="password" required minlength="8">
         <span></span>
-        <label> Password</label>
-     </div>
-     <div class="pass">Forgot Password?</div>
-     <input type="submit" value ="Login">
-     <div class="signup_link">
-       Not a member? <a href="./signup.php">Signup</a>
-     </div>
+        <label>Password</label>
+      </div>
+      <div class="pass">Forgot Password?</div>
+      <input type="submit" value="Login">
+      <div class="signup_link">
+        Not a member? <a href="./signup.php">Signup</a>
+      </div>
     </form>
-     </div>
+  </div>
 </body>
-</html>
 
+</html>

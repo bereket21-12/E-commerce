@@ -19,7 +19,9 @@ if (mysqli_num_rows($result) > 0) {
       $catagories[] = array(
         "category_id" => $row["category_id"],
         "category_name" => $row["category_name"],
-        "product_quantity" => $row["product_quantity"]
+        "product_quantity" => $row["product_quantity"],
+        "category_img" => $row["category_img"]
+
 
       );
     }

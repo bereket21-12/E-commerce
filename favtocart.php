@@ -43,9 +43,9 @@ $result = mysqli_query($conn, $sql);
     //         }
     //     }
     //   }
+    include("./addpopup.php");
     include("./deletefav.php");
     
-include("./addpopup.php");
 
 
 ?>
