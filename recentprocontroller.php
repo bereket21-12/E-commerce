@@ -2,7 +2,7 @@
 $db = new DBConnection();
 $conn = $db->getConnection();
 
-$sql = "SELECT * FROM Products ORDER BY time_added DESC LIMIT 20";
+$sql = "SELECT * FROM Products ORDER BY time_added DESC LIMIT 12";
 
 
 
