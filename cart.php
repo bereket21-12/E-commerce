@@ -168,28 +168,32 @@ include("./Common/navbar.php");
                 <div class="bg-light p-30 mb-5">
                     <div class="border-bottom pb-2">
                         <h6 class="mb-3">Products</h6>
-    <?php foreach( $array as $product):  ?>
+                        <?php foreach( $array as $product):  ?>
                     <div class="border-bottom">
                         <div class="d-flex justify-content-between">
                             <p><?php echo $product['product_name']; ?></p>
-                            <p>$ <?php  $total +=$product['price'];  echo $product['price']; ?></p>
+                            <p>$<?php echo $total +=$product['price']; $product['price']; ?></p>
                         </div>
                     </div>
     <?php endforeach; ?>
+
+                    <div class="border-bottom pt-3 pb-2">
                         <div class="d-flex justify-content-between mb-3">
                             <h6>Subtotal</h6>
-                            <h6>$ <?php  echo $total; ?></h6>
+                            <h6>$ <?php echo $total; ?></h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">$10</h6>
+                            <h6 class="font-weight-medium"><?php if(empty($_SESSION['item'])){ echo "$0" ;} else{ echo "$10";}?></h6>
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Total</h5>
-                            <h5>$ <?php  echo $total+10; ?></h5>
+                            <h5><?php if(empty($_SESSION['item'])){ echo "$0" ;} else{ echo  $total +10 ;}?></h5>
                         </div>
+                    </div>
+                </div>
                         <a href="checkout.php" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</a>
                     </div>
                 </div>

@@ -160,13 +160,13 @@ include("./Common/navbar.php");
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium"><?php if(empty($_SESSION['item']){ echo "$0" ;} else{ echo "$10";})?></h6>
+                            <h6 class="font-weight-medium"><?php if(empty($_SESSION['item'])){ echo "$0" ;} else{ echo "$10";}?></h6>
                         </div>
                     </div>
                     <div class="pt-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Total</h5>
-                            <h5>$ <?php  echo $total+10; ?></h5>
+                            <h5><?php if(empty($_SESSION['item'])){ echo "$0" ;} else{ echo  $total +10 ;}?></h5>
                         </div>
                     </div>
                 </div>
