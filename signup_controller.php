@@ -7,21 +7,21 @@ include "./database/Dbcontroller.php";
 
 $db = new DBConnection();
 $conn = $db->getConnection();
+if (isset($_POST['submit'])) {
 
-
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $address = $_POST['address'];
-    $phone_number =$_POST['phone'];
+   $firstName = $_POST['firstName'];
+  $lastName = $_POST['lastName'];
+  $username = $_POST['username'];
+  $email = $_POST['email'];
+  $address = $_POST['address'];
+  $password = $_POST['password'];
+  $confirmPassword = $_POST['confirmPassword'];
     
-    $sql = "INSERT INTO user (fname,lname,email,password,address,phone_number) 
-    VALUES (?,?,?,?,?,?)";
+   $sql = "INSERT INTO Customer (first_name,last_name,email,password,address,confirmed,username) VALUES (?,?,?,?,?,?,?)";
     
     
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssss", $fname, $lname, $email ,$password,$address,$phone_number);
+    $stmt->bind_param("sssssss",$firstName, $lastName, $email ,$password,$address, $confirmPassword, $username);
 
     if($stmt->execute()){
         echo "Information submitted successfully";
@@ -30,6 +30,8 @@ $conn = $db->getConnection();
         header("Location: login.php");
     } else{
         echo "Error: " . $stmt->error;
+    }
+    
     }
     
     mysqli_close($conn);
