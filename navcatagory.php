@@ -28,7 +28,9 @@ if ($result->num_rows > 0) {
             "product_name" => $row["product_name"],
             "product_description" => $row["product_description"],
             "product_img_path" => $row["image_url"],
-            "category_id" => $row["category_id"]
+            "category_id" => $row["category_id"],
+            "price" => $row["price"]
+
     
           );
         }
