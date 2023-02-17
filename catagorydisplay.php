@@ -13,7 +13,8 @@ include("./Common/navbar.php");
 
 
 <?php foreach($products as $product): ?>
-
+    <?php foreach ($product as $product) : ?>
+  
             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="product-item bg-light mb-4">
                     <div class="product-img position-relative overflow-hidden">
@@ -34,6 +35,7 @@ include("./Common/navbar.php");
                     </div>
                 </div>
             </div>
+    <?php endif; ?>
             
     <?php endforeach; ?>
         </div>

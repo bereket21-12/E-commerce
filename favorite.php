@@ -1,11 +1,13 @@
 <?php
-      session_start();
+    session_start();
 
-if (!$logged_in) {
-  
-    header('Location: signup.php');
-  
-  }
+    $logged_in = $_SESSION["is_loggedin"];
+    
+    if (!$logged_in) {
+      
+      header('Location: signup.php');
+    
+    }
 $array = array_unique($_SESSION['favorite'],SORT_REGULAR);
 $procuct_id = $_GET['product_id'];
 
