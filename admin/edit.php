@@ -168,48 +168,15 @@ if (!$logged_in) {
                                 $result = mysqli_query($conn, $query);
                                 $product = mysqli_fetch_array($result);
                                 $category_id = $product['category_id'];
-                                $file_path = $product['image_url'];
-                                $file_info = pathinfo($file_path);
-                                $file_name = $file_info['basename'];
-
-                                switch ($category_id) {
-                                    case 1:
-                                        $categoryName = "Full Suits";
-                                        break;
-                                    case 2:
-                                        $categoryName = "Jeans For Men";
-                                        break;
-                                    case 3:
-                                        $categoryName = "Shirt";
-                                        break;
-                                    case 4:
-                                        $categoryName = "Sweatshirts Hoodies";
-                                        break;
-                                    case 5:
-                                        $categoryName = "T-Shirt";
-                                        break;
-                                    case 6:
-                                        $categoryName = "Dresses";
-                                        break;
-                                    case 7:
-                                        $categoryName = "Jackets Coats";
-                                        break;
-                                    case 8:
-                                        $categoryName = "Jeans For Women";
-                                        break;
-                                    case 9:
-                                        $categoryName = "Skirts";
-                                        break;
-                                    case 10:
-                                        $categoryName = "Sweaters";
-                                        break;
-                                    case 11:
-                                        $categoryName = "Top";
-                                        break;
-                                }
+                                $image_url = $product['image_url'];
+                                $quantity = $product['quantity'];
+                                $query1 = "SELECT category_name FROM `Categories` WHERE category_id='$category_id'";
+                                $result1 = mysqli_query($conn, $query1);
+                                $categoryName = mysqli_fetch_array($result1);
+                                $category_name = $categoryName['category_name']; 
                             }
                             ?>
-                            <form action="edithandller.php" method="post">
+                            <!-- <form action="edithandller.php" method="post">
                                 <div class="card-body">
                                     <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                                     <div class="form-group">
@@ -227,22 +194,23 @@ if (!$logged_in) {
                                     <div class="form-group">
                                         <label for="categoryType">Category Type</label>
                                         <select class="form-control" name="categoryType">
-                                            <option value=""><?php echo $categoryName; ?></option>
-                                            <optgroup label="Man">
-                                                <option value="Full_Suits">Full Suits</option>
-                                                <option value="Jeans For Men">Jeans For Men</option>
-                                                <option value="Shirt">Shirt</option>
-                                                <option value="Sweatshirts_Hoodies">Sweatshirts & Hoodies</option>
-                                                <option value="T_Shirt">T-Shirt</option>
-                                            </optgroup>
-                                            <optgroup label="Woman">
-                                                <option value="Dresses">Dresses</option>
-                                                <option value="Jackets_Coats">Jackets & Coats</option>
-                                                <option value="Jeans For Women">Jeans For Women</option>
-                                                <option value="Skirts">Skirts</option>
-                                                <option value="Sweaters">Sweaters</option>
-                                                <option value="Top">Top</option>
-                                            </optgroup>
+                                        <option value="<?php echo $categoryName; ?>"><?php echo $categoryName; ?></option>
+                                        <optgroup label="Man">
+                                            <option value="Full_Suits">Full Suits</option>
+                                            <option value="Jeans For Men">Jeans For Men</option>
+                                            <option value="Shirt">Shirt</option>
+                                            <option value="Sweatshirts_Hoodies">Sweatshirts & Hoodies</option>
+                                            <option value="T_Shirt">T-Shirt</option>
+                                        </optgroup>
+                                        <optgroup label="Woman">
+                                            <option value="Dresses">Dresses</option>
+                                            <option value="Jackets_Coats">Jackets & Coats</option>
+                                            <option value="Jeans For Women">Jeans For Women</option>
+                                            <option value="Skirts">Skirts</option>
+                                            <option value="Sweaters">Sweaters</option>
+                                            <option value="Top">Top</option>
+                                        </optgroup>
+
                                         </select>
 
                                     </div>
@@ -256,7 +224,66 @@ if (!$logged_in) {
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="update_product">Update Product</button>
                                 <a href="admin1.php" class="btn btn-secondary">Discard Changes</a>
-                            </form>
+                            </form> -->
+
+
+                            <!-- FORM -->
+                            <form action="edithandller.php" method="post" enctype="multipart/form-data">
+                            <div class="card-body">
+                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                                <div class="form-group">
+                                    <label for="productName">Product Name</label>
+                                    <input type="text" name="productName" class="form-control" id="productName" value="<?php echo $product['product_name']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="productDescription">Product Description</label>
+                                    <textarea name="productDescription" class="form-control" id="productDescription" value=""><?php echo $product['product_description']; ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Price</label>
+                                    <input type="number" name="price" class="form-control" id="price" value="<?php echo $product['price']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity">Quantity</label>
+                                    <input type="number" name="quantity" class="form-control" id="price" value="<?php echo $quantity; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="categoryType">Category Type</label>
+                                    <select class="form-control" name="categoryType">
+                                        <option value="<?php echo $category_name; ?>"><?php echo $category_name; ?></option>
+                                        <optgroup label="Man">
+                                            <option value="Full_Suits">Full Suits</option>
+                                            <option value="Jeans For Men">Jeans For Men</option>
+                                            <option value="Shirt">Shirt</option>
+                                            <option value="Sweatshirts_Hoodies">Sweatshirts & Hoodies</option>
+                                            <option value="T_Shirt">T-Shirt</option>
+                                        </optgroup>
+                                        <optgroup label="Woman">
+                                            <option value="Dresses">Dresses</option>
+                                            <option value="Jackets_Coats">Jackets & Coats</option>
+                                            <option value="Jeans For Women">Jeans For Women</option>
+                                            <option value="Skirts">Skirts</option>
+                                            <option value="Sweaters">Sweaters</option>
+                                            <option value="Top">Top</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="product_image">Image</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="product_image" class="custom-file-input" id="product_image">
+                                        <label class="custom-file-label" for="product_image">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                            <button type="submit" class="btn btn-primary" name="update_product">Update Product</button>
+                                <a href="admin1.php" class="btn btn-secondary">Discard Changes</a>
+                            </div>
+                        </form>
+
+
+
                         </div>
                     </div>
             </section>
