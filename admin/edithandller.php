@@ -1,9 +1,6 @@
 
 <?php
-//     $query = "UPDATE Products SET  product_name='$productName', product_description='$productDescription', price='$price', image_url='$product_image_folder1', category_id='$category_id', category_type
-// ='$categoryType' WHERE product_id='$product_id'";
 $product_id = $_POST['product_id'];
-//     $result = mysqli_query($conn, $query);
 $conn = mysqli_connect("localhost", "root", "", "E-commerce3");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -87,7 +84,7 @@ if (isset($_POST['update_product'])) {
     } else {
         $categoryType = "Woman";
     }
-    // $database = mysql_select_db($db, $conn) or die("DB Selection Error: " . mysql_error());
+
     if (mysqli_connect_error()) {
         die("Failed to connect to the database: " . mysqli_connect_error());
     } else {
@@ -97,14 +94,16 @@ if (isset($_POST['update_product'])) {
         $start = strpos($product_image_folder1, 'img');
         $image_url = substr($product_image_folder1, $start);
     }
+
     $sql = "UPDATE Products SET  product_name='$productName', product_description='$productDescription', price='$price', image_url='$image_url', category_id='$category_id', category_type='$categoryType', quantity='$quantity' WHERE product_id='$product_id'";
 
-    // $sql = "INSERT INTO Products (product_name, product_description, category_id, price, image_url, category_type, quantity) VALUES ('$productName', '$productDescription', '$category_id', '$price', ' $image_url', '$categoryType', '$quantity')";
-    $result = move_uploaded_file($product_image_tmp_name, $product_image_folder1);
-    if (($result && mysqli_query($conn, $sql)) && (isset($_FILES['product_image']['name']))) {
+    if ((mysqli_query($conn, $sql)) && (!empty($_FILES['product_image']['name']))) {
+        echo $quantity . "</br>";
+        $result = move_uploaded_file($product_image_tmp_name, $product_image_folder1);
         $message = 'Product updated successfully';
         echo "<script type='text/javascript'>alert('$message'); window.location.href = 'admin1.php';</script>";
-    } else {
-        echo "Error adding product: " . mysqli_error($conn);
+    } else if (mysqli_query($conn, $sql)) {
+        $message = 'Product updated successfully';
+        echo "<script type='text/javascript'>alert('$message'); window.location.href = 'admin1.php';</script>";
     }
 }
