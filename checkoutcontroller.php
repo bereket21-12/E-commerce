@@ -32,7 +32,8 @@ ini_set('display_errors', 1);
                $sql2 = "UPDATE Products SET quantity = quantity - $decrease_by WHERE product_id = {$item['product_id']}";
     
                if ($conn->query($sql2) === TRUE) {
-                   echo "Item quantity updated successfully.";
+                //    echo "Item quantity updated successfully.";
+                header('Location: index.php');
                } else {
                    echo "Error updating item quantity: " . $conn->error;
                }
@@ -40,7 +41,5 @@ ini_set('display_errors', 1);
         }
         
         mysqli_close($conn);
-
-
 ?>
 
