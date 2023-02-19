@@ -102,6 +102,14 @@ if (!$logged_in) {
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="outOfStock.php" class="nav-link">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p>
+                                    Out of Stock Prodcts
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

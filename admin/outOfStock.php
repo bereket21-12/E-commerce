@@ -32,8 +32,8 @@ if (!$logged_in) {
             <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
         </div>
 
-         <!-- Navbar -->
-         <nav class="main-header navbar navbar-expand navbar-dark">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-dark">
             <!-- Left navbar links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -50,6 +50,7 @@ if (!$logged_in) {
             </ul>
         </nav>
         <!-- /.navbar -->
+
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
@@ -182,7 +183,7 @@ if (!$logged_in) {
                                         $start_product = ($current_page - 1) * $products_per_page;
 
                                         // Query to fetch the products for the current page
-                                        $query = "SELECT product_id, category_type, product_name, quantity FROM Products LIMIT $start_product, $products_per_page";
+                                        $query = "SELECT product_id, category_type, product_name, quantity FROM Products WHERE quantity=0 LIMIT $start_product, $products_per_page";
                                         $result = mysqli_query($conn, $query);
 
                                         ?>
@@ -302,19 +303,10 @@ if (!$logged_in) {
     <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.js"></script>
-
-    <!-- PAGE PLUGINS -->
-    <!-- jQuery Mapael -->
     <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
     <script src="plugins/raphael/raphael.min.js"></script>
     <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
     <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-    <!-- ChartJS -->
-    <!-- <script src="plugins/chart.js/Chart.min.js"></script> -->
-
-    <!-- AdminLTE for demo purposes -->
-    <!-- <script src="dist/js/demo.js"></script> -->
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dist/js/pages/dashboard2.js"></script>
 </body>
 
