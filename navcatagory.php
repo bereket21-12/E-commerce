@@ -12,8 +12,8 @@ $category_id = $_GET['category_id'];
 
 
 
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 
 $sql = "SELECT * FROM Products where category_id='$category_id '";
@@ -29,7 +29,8 @@ if ($result->num_rows > 0) {
             "product_description" => $row["product_description"],
             "product_img_path" => $row["image_url"],
             "category_id" => $row["category_id"],
-            "price" => $row["price"]
+            "price" => $row["price"],
+            "quantity" => $row['quantity']
 
     
           );

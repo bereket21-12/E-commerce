@@ -122,29 +122,26 @@
   var oldValue = button.parent().find('input').val();
   if (button.hasClass('btn-plus')) {
     var newVal = parseFloat(oldValue) + 1;
+    sendQuantity(quantity);
     console.log("the value is " + newVal);
   } else {
     if (oldValue > 1) {
       var newVal = parseFloat(oldValue) - 1;
+      sendQuantity(quantity);
     } else {
       newVal = 1;
     }
   }
   button.parent().find('input').val(newVal);
   var formData = new FormData(button.parent()[0]);
-  $.ajax({
-    url: "quantity.php",
-    type: "POST",
-    processData: false,
-    contentType: false,
-    data: formData,
-    success: function(data) {
-      console.log("Quantity updated successfully");
-    },
-    error: function() {
-      console.log("Error updating quantity");
-    }
-  });
+
+  function sendQuantity(quantity) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'quantity.php');
+    // const formData = new FormData();
+    formData.append('quantity', quantity);
+    xhr.send(formData);
+  }
 });
 
 

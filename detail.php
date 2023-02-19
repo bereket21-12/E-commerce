@@ -12,7 +12,41 @@ $sql = "SELECT * FROM Products WHERE product_id = $procuct_id";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // mysqli_close($conn);
+
+?>
+
+
+<?php
+
+$sql2 = "SELECT * FROM review  JOIN Customer ON  review.customer_id = Customer.customer_id AND review.product_id =$procuct_id ";
+$result2 = mysqli_query($conn, $sql2);
+
+
+
+if (mysqli_num_rows($result2) > 0) {
+    while($row2 = mysqli_fetch_assoc($result2)) {
+      $review[] = array(
+        "username" => $row2["username"],
+        "review" => $row2["review"],
+        "review_date" => $row2["review_date"],
+        "rate" => $row2["rate"]
+
+
+      );
+    }
+    $length = count($review);
+  } else {
+    echo "0 results";
+    $length = 0;
+
+  }
+
+
+
 
 ?>
 
@@ -166,7 +200,7 @@ $row = mysqli_fetch_assoc($result);
                     <div class="nav nav-tabs mb-4">
                         <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Description</a>
                         <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Information</a>
-                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+                        <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Reviews <?php echo "(".$length.")" ;?></a>
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-pane-1">
@@ -211,54 +245,75 @@ $row = mysqli_fetch_assoc($result);
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
+
                         <div class="tab-pane fade" id="tab-pane-3">
+                            <?php foreach($review as $review) : ?>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <h4 class="mb-4">1 review for "Product Name"</h4>
-                                    <div class="media mb-4">
+                               <div class="col-md-6">
+                                   
+                                    <div class="media mb-4"> 
                                         <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                         <div class="media-body">
-                                            <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
+                                            <h6><?php echo $review['username'] ;?><small> - <i><?php echo $review['review_date'] ;?></i></small></h6>
                                             <div class="text-primary mb-2">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+                                                <?php for ($i=0; $i <$review['rate'] ; $i++) { ?>
+
+                                                    <i class="fas fa-star"></i>
+                                               <?php }?>
+                                                <!-- <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star-half-alt"></i>
-                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i> -->
                                             </div>
-                                            <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
+                                            <p><?php echo $review['review'] ;?></p>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                                <?php endforeach ; ?>
                                 <div class="col-md-6">
                                     <h4 class="mb-4">Leave a review</h4>
                                     <small>Your email address will not be published. Required fields are marked *</small>
+                                 
+
+
+                                    <form method = "post" action = "review.php" >
                                     <div class="d-flex my-3">
                                         <p class="mb-0 mr-2">Your Rating * :</p>
-                                        <div class="text-primary">
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                        </div>
+                                        <div class="rating-stars">
+    <input type="radio" name="rating" id="star-5" value="1">
+    <label for="star-5">1</label>
+    <input type="radio" name="rating" id="star-4" value="2">
+    <label for="star-4">2</label>
+    <input type="radio" name="rating" id="star-3" value="3">
+    <label for="star-3">3</label>
+    <input type="radio" name="rating" id="star-2" value="4">
+    <label for="star-2">4</label>
+    <input type="radio" name="rating" id="star-1" value="5">
+    <label for="star-1">5</label>
+  </div>
                                     </div>
-                                    <form>
                                         <div class="form-group">
                                             <label for="message">Your Review *</label>
-                                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                            <textarea  name = "review" id="message" cols="30" rows="5" class="form-control"></textarea>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label for="name">Your Name *</label>
                                             <input type="text" class="form-control" id="name">
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <label for="email">Your Email *</label>
-                                            <input type="email" class="form-control" id="email">
+                                            <input type="email" class="form-control"  name="email" id="email">
                                         </div>
                                         <div class="form-group mb-0">
                                             <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
                                         </div>
+                                        <input type="hidden" name="product_id" value="<?php echo $procuct_id; ?>">
                                     </form>
                                 </div>
                             </div>
@@ -268,6 +323,8 @@ $row = mysqli_fetch_assoc($result);
             </div>
         </div>
     </div>
+
+    
     <!-- Shop Detail End -->
     <?php
 
@@ -277,5 +334,4 @@ $row = mysqli_fetch_assoc($result);
 
   
 
-    // use $conn for database operations
-    ?>
+    
