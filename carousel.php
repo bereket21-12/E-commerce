@@ -24,8 +24,7 @@
                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#" style="font-size: 1.2rem;">Shop Now</a>
                 </div>
             </div>
-        </div>
-
+        </div> 
     </div>
 </div>
 <!-- Carousel End -->
