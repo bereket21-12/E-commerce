@@ -2,6 +2,7 @@
 
  
 $link = null ;
+$name = null;
 session_start();
 
 $logged_in = $_SESSION["is_loggedin"];
@@ -21,6 +22,7 @@ else {
     $logged_in = $_SESSION["is_loggedin"];
     $link = "./logout.php";
     $txt = "Logout";
+    $name = $_SESSION['username'];
 
 }
 ?>
@@ -84,8 +86,10 @@ else {
                           
                         
                             <a href="contacts.php" class="nav-item nav-link">Contact</a>
+                   
+
                  
-                            <div class="col-lg-4 col-5 text-left mt-3" style="width: 600px;">
+                            <div class="col-lg-4 col-5 text-left mt-3" style="width: 400px;">
                                 <form  action="./searchcontroller.php">
                                     <div class="input-group">
                                         <input name ="search" type="text" class="form-control" placeholder="Search for products">
@@ -109,6 +113,7 @@ else {
                             <i class="fas fa-shopping-cart text-primary"></i>
                             <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"><?php echo sizeof($cart_array); ?></span>
                         </a>
+                        <a href="#" class="nav-item nav-link"><?php echo $name ;?></a>
                     </div>
                 </nav>
             </div>

@@ -17,7 +17,7 @@ ini_set('display_errors', 1);
             $sql = "INSERT INTO Orders (customer_id,product_id,price) 
             VALUES (?,?,?)";        
                $stmt = $conn->prepare($sql);
-               $stmt->bind_param("sss", $_SESSION['customer_id'], $item['product_id'],$item['price']);
+               $stmt->bind_param("sss", $_SESSION['customer_id'], $item['product_id'],$item['price']+10);
            
                if($stmt->execute()){
                 array_splice($_SESSION['item'], 0);

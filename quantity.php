@@ -2,14 +2,17 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+
+// $data = json_decode(file_get_contents("php://input"), true);
+// $newVal = $data['quantity'];
+
 if (isset($_POST['quantity'])) {
   $quantity = $_POST['quantity'];
-  // Do something with the quantity value, such as updating it in the database or performing some calculations
 }
-  
+
+echo "The quantity is " . $quantity;
 
 
-echo "the value is ".  $quantity;
 
 
 ?>

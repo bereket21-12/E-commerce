@@ -87,67 +87,39 @@
     // Product Quantity
     $('.quantity button').on('click', function () {
         var button = $(this);
-        var oldValue = button.parent().parent().find('input').val();
+        var input = button.closest('.quantity').find('input');
+        var oldValue = input.val();
         if (button.hasClass('btn-plus')) {
-            var newVal = parseFloat(oldValue) + 1;
-            console.log("the value is" +newVal);
+          var newVal = parseFloat(oldValue) + 1;
         } else {
-            if (oldValue > 0) {
-                var newVal = parseFloat(oldValue) - 1;
-            } else {
-                newVal = 0;
-            }
+          if (oldValue > 1) {
+            var newVal = parseFloat(oldValue) - 1;
+          } else {
+            newVal = 1;
+          }
         }
-        button.parent().parent().find('input').val(newVal);
-        var formData  = FormData(this);
-        formData.append("quantity");
+        input.val(newVal);
+        var formData = new FormData();
+        formData.append('quantity', newVal);
         $.ajax({
-            url: "quantity.php",
-            type: "POST",
-            processData: false,
-            contentType: false,
-            Data:formData,
-            success: function(data) {
-                console.log("Quantity updated successfully");
-            },
-            error: function() {
-                console.log("Error updating quantity");
-            }
+          url: 'quantity.php',
+          type: 'POST',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function(data) {
+            console.log("Quantity updated successfully");
+            console.log("Response from server:", data);
+            var parsedData = JSON.parse(data);
+            var newValue = parsedData.newValue;
+            $('#quantity-value').text(newValue);
+         },
+          error: function() {
+            console.log('Error updating quantity');
+          }
         });
-        
-    });
-
-    $('#quantity button').on('click', function() {
-  var button = $(this);
-  var oldValue = button.parent().find('input').val();
-  if (button.hasClass('btn-plus')) {
-    var newVal = parseFloat(oldValue) + 1;
-    sendQuantity(quantity);
-    console.log("the value is " + newVal);
-  } else {
-    if (oldValue > 1) {
-      var newVal = parseFloat(oldValue) - 1;
-      sendQuantity(quantity);
-    } else {
-      newVal = 1;
-    }
-  }
-  button.parent().find('input').val(newVal);
-  var formData = new FormData(button.parent()[0]);
-
-  function sendQuantity(quantity) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'quantity.php');
-    // const formData = new FormData();
-    formData.append('quantity', quantity);
-    xhr.send(formData);
-  }
-});
-
-
-
-
-
+      });
+      
       
     
 })(jQuery);
