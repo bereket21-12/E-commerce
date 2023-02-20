@@ -21,8 +21,6 @@ echo "</br>";
                 </div>
             </div>
 
-<<<<<<< HEAD
-=======
 
         <div class="border-bottom pt-3 pb-2">
             <div class="d-flex justify-content-between mb-3">
@@ -50,7 +48,6 @@ echo "</br>";
         </div>
     </div>
     <?php
->>>>>>> e56c119b81b66e2aa7bdcc8c9cd40b8e8aebc1ee
 
     $cartItems = [];
 
@@ -68,9 +65,6 @@ echo "</br>";
         <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Payment</span></h5>
         <div class="bg-light p-30">
 
-<<<<<<< HEAD
-            
-=======
             <form method="post" action="https://test.yenepay.com/">
                 <input type="hidden" name="Process" value="Cart">
                 <input type="hidden" name="MerchantOrderId" value="">
@@ -90,7 +84,6 @@ echo "</br>";
                 <!-- <input type="hidden" name="Quantity" value="1"> -->
                 <input type="submit" class="btn btn-block btn-primary font-weight-bold py-3" value="Buy Now With YenePay Payment">
             </form>
->>>>>>> e56c119b81b66e2aa7bdcc8c9cd40b8e8aebc1ee
         </div>
     </div>
 </div>
