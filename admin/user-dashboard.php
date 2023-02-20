@@ -34,15 +34,20 @@ if (!$logged_in) {
             <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
         </div>
 
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-dark">
+         <!-- Navbar -->
+         <nav class="main-header navbar navbar-expand navbar-dark">
             <!-- Left navbar links -->
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="../index.php" class="nav-link">Home</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="./logout.php" class="nav-link">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -101,6 +106,14 @@ if (!$logged_in) {
                                 <i class="nav-icon far fa-plus-square"></i>
                                 <p>
                                     Add Product
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="outOfStock.php" class="nav-link">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p>
+                                    Out of Stock Prodcts
                                 </p>
                             </a>
                         </li>
